@@ -1,0 +1,11 @@
+dist: xenial
+language: java
+# install: ant deps
+addons :
+  ant:
+    packages:
+      -ant
+jdk:
+  -oraclejdk8
+  -oraclejdk9
+  -openjdk8
