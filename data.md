@@ -24,3 +24,7 @@ PR
 
 primitive data type??
 object value data??
+
+subrutine
+methode
+statment
