@@ -1,4 +1,4 @@
-
+tuning complete dari arah kanan ke kiri terdapat beberapa perintah if else dan sebagainya
 
 # encript decript
 
@@ -35,9 +35,12 @@ non-primitive data type??
 ``methode
     -adalah fungsi yang berada di dalam Class. Sebutan ini, biasanya digunakan pada OOP
     
-``A procedure should "do something" to the arguments or cause some other side effect (e.g. printf)
-``A function should (a) answer a question about the arguments, or (b) compute a new value based on the arguments
-``A function method should answer a question about the state of the object
-``A procedure method should change the state of the object
+- A procedure should "do something" to the arguments or cause some other side effect (e.g. printf)
+- A function should (a) answer a question about the arguments, or (b) compute a new value based on the arguments
+- A function method should answer a question about the state of the object
+- A procedure method should change the state of the object
 
 
+##IEEE adalah
+## ISO adalah
+##RFC adalah
