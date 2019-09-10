@@ -20,18 +20,26 @@ public static void main(String[] args) {
 //	System.out.println("tidak boleh");
 //	}
 
-	int x=18 ;
-	if (x>= 8 ){
-		if (x<=17){
-			System.out.println("Boleh");
-		}else{
-			System.out.println("tidak boleh");
-		}
-	}
-	}else {
-		System.out.println("boleh");
-	}
-}
-
-
+//	int x=18 ;
+//	if (x>= 8 ){
+//		if (x<=17){
+//			System.out.println("Boleh");
+//		}else{
+//			System.out.println("tidak boleh");
+//		}
+//	}
+//	}else {
+//		System.out.println("boleh");
+//	}
+//}
+    int n = 7;
+    System.out.println("ganjil");
+        static String getDesc(int numb){
+            if (numb n == 0){
+                return "ganjil";
+            }
+            else{
+                return "genap";
+            }
+        }
 }
