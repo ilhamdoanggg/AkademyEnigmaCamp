@@ -14,22 +14,23 @@ public class CobaAja {
           System.out.println(a);
           System.out.println(b);
           System.out.println(c);
-          getName("asdasd");
-          getKolom("nama");
+          //getName();
+          //getName(name +"asdasd" + umur :+"123");
+          //getName(umur+"123");
      }
-     public static void getName(String nama)
+     public static void getName()
      {
+
+          //String nama ="";
           //int x = sum (5, 4);
           //System.out.println(x);
           //String nama = "Firman Agam";
-          System.out.println(nama);
+//          System.out.println(name);
+//          System.out.println(umur);
      }
 //     static int sum (int a, int b)
 //     {
 //          return a+b;
 //     }
 
-     public static void getKolom(String kolom){
-          System.out.println(kolom);
-     }
 }
