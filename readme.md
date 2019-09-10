@@ -1,8 +1,8 @@
 
 
-#encript decript
+# encript decript
 
-##case java
+## case java
     - UpperCase 
     - camelCase
     - PascalCase
@@ -11,7 +11,7 @@
     - kebab-case
 
 
-##type data java
+## type data java
     - int integer
     - String
     - boolean
