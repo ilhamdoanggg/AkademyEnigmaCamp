@@ -28,9 +28,16 @@ primitive data type??
 non-primitive data type??
     -Contoh dari non primitive data type ini adalah array. Saat kita membuat array kita dapat definisikan sendiri(programmer mendefinisikan) tipe data untuk anggota/member dari array tersebut. Misalkan array tersebut memiliki tipe data integer/string/dsb dan bahkan dapat menggunakan tipe data dari object yang telah kita buat sendiri. Misalkan object person saat kita menyimpan daftar person dalam suatu array. Untuk saat ini cukup fahami bahwa kita dapat menciptakan tipe data sendiri dalam array maupun tidak. Hal tersebut akan dibahas dalam pembahasan-pembahasan selanjutnya
 
-subroutine 
+``subroutine 
     -adalah sebutan untuk fungsi yang tidak mengembalikan nilai. Fungsi ini biasanya ditandai dengan kata kunci void.
-funtion
+``funtion
     -adalah sebutan untuk fungsi yang mengembalikan nilai
-methode
+``methode
     -adalah fungsi yang berada di dalam Class. Sebutan ini, biasanya digunakan pada OOP
+    
+``A procedure should "do something" to the arguments or cause some other side effect (e.g. printf)
+``A function should (a) answer a question about the arguments, or (b) compute a new value based on the arguments
+``A function method should answer a question about the state of the object
+``A procedure method should change the state of the object
+
+
