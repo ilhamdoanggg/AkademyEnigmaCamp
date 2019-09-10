@@ -1,3 +1,4 @@
+# day 1
 tuning complete dari arah kanan ke kiri terdapat beberapa perintah if else dan sebagainya
 
 # encript decript
@@ -12,7 +13,7 @@ tuning complete dari arah kanan ke kiri terdapat beberapa perintah if else dan s
 
 
 ## type data java
-- int integer
+- int
 - String
 - boolean
 - char
@@ -41,14 +42,43 @@ PR
 - A function method should answer a question about the state of the object
 - A procedure method should change the state of the object
 
+# day 2
+### IEEE adalah
+### ISO adalah
+### RFC adalah
 
-## IEEE adalah
-## ISO adalah
-##R FC adalah
+8 primitive data 
 
+void = menjalankan perintah dan tidak membalikan data
 
+AM (access modifire) + data type + nama method +(data type +variable)
 
 Operator
 - aritmatic operator
 - relasi opertor
 - 
+- 
+- 
+
+
+``` java
+if (condition){
+    true
+    } else
+    {false}
+```
+## loop
+
+
+- for (start + condition + increment) 
+
+while ()
+
+
+tugas
+
+ `input jumblah data: || 3`
+ `silahkan input data ke 1`
+ `nama : || nama orang`
+ `alamat :`
+
