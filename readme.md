@@ -43,10 +43,18 @@ PR
 - A procedure method should change the state of the object
 
 # day 2
-### IEEE adalah
+### IEEE adalah 
+
+- Institute of Electrical and Electronics Engineers 
+  organisasi internasional, beranggotakan para insinyur, dengan tujuan untuk pengembangan teknologi untuk meningkatkan harkat kemanusiaan. Sebelumnya IEEE memiliki kepanjangan yang dalam Indonesia berarti Institut Insinyur Listrik dan Elektronik
 ### ISO adalah
+
+- Internasional untuk Standardisasi 
+  (International Organization for Standardization) dan disingkat ISO. ISO adalah badan penetap standar internasional yang terdiri dari wakil-wakil dari badan standardisasi nasional setiap negara
 ### RFC adalah
 
+- Sebuah dokumen Request for Comments (RFC) 
+  adalah salah satu dari seri dokumen infomasi dan standar Internet bernomor yang diikuti secara luas oleh perangkat lunak untuk digunakan dalam jaringan, Internet dan beberapa sistem operasi jaringan, mulai dari Unix, Windows, dan Novell NetWare
 8 primitive data 
 
 void = menjalankan perintah dan tidak membalikan data
@@ -67,7 +75,7 @@ if (condition){
     } else
     {false}
 ```
-## loop
+### loop
 
 
 - for (start + condition + increment) 
@@ -75,10 +83,13 @@ if (condition){
 while ()
 
 
-tugas
+ tugas``
 
  `input jumblah data: || 3`
  `silahkan input data ke 1`
  `nama : || nama orang`
  `alamat :`
+
+
+## day 3
 
