@@ -100,3 +100,6 @@ while ()
 
 ## day 3
 
+method tdk bisa di dalam metod
+metod bisa di panggil di dalam metodh lain
+syncronus dan asyngcronus
