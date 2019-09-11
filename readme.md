@@ -103,3 +103,42 @@ while ()
 method tdk bisa di dalam metod
 metod bisa di panggil di dalam metodh lain
 syncronus dan asyngcronus
+
+
+fungsi AM (access modifire) 
+
+- public 
+- private
+- static
+- protected
+- final
+
+class tidak boleh menggunakan private, protected, final, 
+variable / attribute public, private, protected, final tapi pake nilai (final public/private variable = value)
+
+oop
+
+1. encapsulation
+
+penulisan code
+
+```java
+Integer fuel;
+    public void fillFuel(this.fuel){
+    this.fuel = this.fuel + fuel
+}
+```
+
+```java
+
+```
+
+[ polymorphism]
+
+[ inheritensce]
+ 
+ 
+ 
+ tugas
+ 
+ jalanya mobil
