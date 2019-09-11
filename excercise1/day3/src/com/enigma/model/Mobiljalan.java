@@ -9,20 +9,20 @@ public class Mobiljalan {
     Integer titikx=0;
     Integer titiky=0;
 
+    public String isFuelUse(){
+        for (){
+
+        }
+        //return bensin*3;
+    }
+
     public void startPoint(int titikx, int titiky){
         this.titikx=this.titikx + titikx;
         this.titiky=this.titiky + titiky;
     }
+    public void rumus(){
 
-//    StringBuilder sb= new StringBuilder();
-    /*public void keyTyped(KeyEvent e){
-        sb.append(e.getKeyChar());
-        System.out.println(sb.toString());
-    }*/
-//    public String rumusKurva(){
-//
-//    }
-
+    }
     public void isFluel(int bensin){
         this.bensin=this.bensin+bensin;
     }
