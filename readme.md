@@ -47,19 +47,24 @@ PR
 
 - Institute of Electrical and Electronics Engineers 
   organisasi internasional, beranggotakan para insinyur, dengan tujuan untuk pengembangan teknologi untuk meningkatkan harkat kemanusiaan. Sebelumnya IEEE memiliki kepanjangan yang dalam Indonesia berarti Institut Insinyur Listrik dan Elektronik
+
 ### ISO adalah
 
 - Internasional untuk Standardisasi 
   (International Organization for Standardization) dan disingkat ISO. ISO adalah badan penetap standar internasional yang terdiri dari wakil-wakil dari badan standardisasi nasional setiap negara
+
 ### RFC adalah
 
 - Sebuah dokumen Request for Comments (RFC) 
   adalah salah satu dari seri dokumen infomasi dan standar Internet bernomor yang diikuti secara luas oleh perangkat lunak untuk digunakan dalam jaringan, Internet dan beberapa sistem operasi jaringan, mulai dari Unix, Windows, dan Novell NetWare
+
 8 primitive data 
 
 void = menjalankan perintah dan tidak membalikan data
 
+```data
 AM (access modifire) + data type + nama method +(data type +variable)
+```
 
 Operator
 - aritmatic operator
@@ -77,13 +82,15 @@ if (condition){
 ```
 ### loop
 
+```java
+    (start + condition + increment) 
+```
 
-- for (start + condition + increment) 
 
 while ()
 
 
- tugas``
+ tugas
 
  `input jumblah data: || 3`
  `silahkan input data ke 1`
