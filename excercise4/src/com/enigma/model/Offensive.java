@@ -2,17 +2,13 @@ package com.enigma.model;/*
 |--------------------------------------------------------------------------
 | null.java
 |--------------------------------------------------------------------------
-|This file add from Project excercise3
+|This file add from Project excercise4
 |Ini hanya untuk membuat hak cipta doang
 |@author Ilhamdoanggg 
-|di buat pada 9/16/2019 1:22 PM
+|di buat pada 9/17/2019 2:44 AM
 |
 */
 
-public class Tower implements HitAble{
-
-    @Override
-    public void getHit() {
-
-    }
+public interface Offensive {
+    public void attack(HitAble hitAble);
 }
