@@ -22,23 +22,26 @@ public class Robot {
         return "";
     }
 
-    public void turnLeft() {
-        this.direction = this.direction.left();
+    public void getLeft() {
+        this.direction = this.direction.turnLeft();
     }
 
-    public void turnRight() {
-        this.direction = this.direction.right();
+    public void getRight() {
+        this.direction = this.direction.turnRight();
     }
 
     public void move(String movement) {
         if (movement.equals(R)) {
-            turnRight();
+            getRight();
         } else if (movement.equals(L)) {
-            turnLeft();
+            getLeft();
         } else if (movement.equals(F)) {
             moveForward();
         } else if (movement.equals(B)) {
             moveBackward();
+        }else {
+            System.out.println("error input");
+            System.exit(1);
         }
     }
 
@@ -81,6 +84,7 @@ public class Robot {
             System.out.println(this.command[i] + getPos() + this.direction);
         }
     }
+
     public String getPos () {
             return "(" + posX + "," +posY+ ")";
     }
