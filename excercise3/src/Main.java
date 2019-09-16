@@ -1,42 +1,23 @@
-import com.enigma.model.Role;
+import com.enigma.main.Direction;
+import com.enigma.main.Robot;
 
 import java.io.BufferedReader;
-import java.io.IOException;
+import java.io.IOException ;
 import java.io.InputStreamReader;
-
 public class Main {
-    
-/*
+
     public static void main(String[] args) throws IOException {
 
-    BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-    System.out.println("Welcome to MMORPG Game calculator");
-    System.out.println("1. Tank 2. Arcer 3. Mage ");
-    System.out.println("4. Assasin 5. Warior 5.Crusaider " );
-    System.out.print("Choose class Hero :");
-    String titik = br.readLine();
-    Integer value = Integer.parseInt(titik);
+        BufferedReader baca = new BufferedReader(new InputStreamReader(System.in));
+        System.out.println("Masukan Kordinat Anda (x,y) :");
+        String inpNama = baca.readLine();
+        String chor [] = inpNama.split(",");
+        System.out.println("Kordinat Anda :" + chor[0]+ "," + chor[1]+","+chor[2]);
+        Robot ironman = new Robot(Integer.parseInt(chor[0]),Integer.parseInt(chor[1]),Direction.valueOf(chor[2]));
 
-    System.out.print("Choose Level Hero :");
-    String level = br.readLine();
-    Integer levell = Integer.parseInt(level);
-
-    Role pahlawan = new Role(0,0,levell,0,0, value);
-        System.out.println(pahlawan.getClassHero(value));
-
-
-
-*/
-
-//    Integer values = Integer.parseInt(value[0]), Integer.parseInt(value[1]), Integer.parseInt(value[2]), Integer.parseInt(value[3]),Integer.parseInt(value[4]);
-
-/*
-
-        System.out.print("Choose Level Hero :");
-        String  levelChoose = br.readLine();
-        Integer level =Integer.parseInt(levelChoose);
-*/
-
-//    System.out.println(pahlawan.print());
+        System.out.println("Make your move :");
+        String inpMove = baca.readLine();
+        ironman.move(ironman.setCommand(inpMove));
+        ironman.run();
     }
 }
