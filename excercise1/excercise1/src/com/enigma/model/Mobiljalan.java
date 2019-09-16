@@ -1,7 +1,5 @@
 package com.enigma.model;
 
-import java.awt.event.KeyEvent;
-
 public class Mobiljalan {
     private Boolean isStart;
     private Integer bensin = 0;
@@ -9,12 +7,19 @@ public class Mobiljalan {
     Integer titikx=0;
     Integer titiky=0;
 
-    public String isFuelUse(){
-        for (){
 
+    public void isFluel(int bensin){
+        this.bensin=this.bensin+bensin;
+    }
+
+/*
+    public String isFuelUse(){
+        for (int i=0, i<isFluel(); , i++){
+            assert;
         }
         //return bensin*3;
     }
+*/
 
     public void startPoint(int titikx, int titiky){
         this.titikx=this.titikx + titikx;
@@ -22,9 +27,6 @@ public class Mobiljalan {
     }
     public void rumus(){
 
-    }
-    public void isFluel(int bensin){
-        this.bensin=this.bensin+bensin;
     }
 
     Boolean isFuelSufficient(){
@@ -51,5 +53,6 @@ public class Mobiljalan {
         }
         System.out.println("done");
     }
+
 
 }

@@ -129,15 +129,17 @@ Integer fuel;
 }
 ```
 
-```java
-
-```
 
 [ polymorphism]
 
+
 [ inheritensce]
- 
- 
+
+turunan dari kelas yang sifatnya sama 
+
+[Abstract]
+
+[Interface]
  
  tugas
  
