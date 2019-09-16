@@ -1,6 +1,24 @@
 package com.enigma.model;
 
-public class Hero {
+public class Hero implements HitAble {
+
+    private Integer hp;
+    private Integer mp;
+    private Integer demage;
+
+    private Hero(Integer hp, Integer mp, Integer demage) {
+        this.hp = hp;
+        this.mp = mp;
+        this.level = demage;
+    }
+
+
+    @Override
+    public void getHit() {
+
+    }
+}
+/*
     private Integer hp;
     private Integer mp;
     private Integer level;
@@ -29,5 +47,6 @@ public class Hero {
     public Integer isSkillUse(){
         return mp*level/100;
     }
+*/
 
-}
+
