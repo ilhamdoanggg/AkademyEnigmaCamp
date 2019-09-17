@@ -1,7 +1,4 @@
-import com.enigma.model.Creep;
-import com.enigma.model.Heros;
-import com.enigma.model.Skill;
-import com.enigma.model.Tower;
+import com.enigma.model.*;
 
 public class Main {
     public static void main(String[] args) {
