@@ -1,23 +1,30 @@
+import com.enigma.model.Circle;
+
+import java.util.ArrayList;
+import java.util.Iterator;
 
 public class Main {
     public static void main(String[] args) {
-/*        BufferedReader baris = new BufferedReader(new InputStreamReader(System.in));
 
-        Mobiljalan mobil = new Mobiljalan();
-        System.out.print("masukan jumblah bensin :");
-        String jumblahBensin = baris.readLine();
+//        Circle circle = new Circle();
+        ArrayList<Circle> circles = new ArrayList<>();
+        circles.add(new Circle(5));
+        circles.add(new Circle(1));
+        circles.add(new Circle(3));
+        circles.add(new Circle(5));
+        circles.add(new Circle(5));
+        circles.add(new Circle(5));
+        circles.add(new Circle(5));
 
-        System.out.print("Masukan Posisi Awal mobil anda :");
-        String titik = baris.readLine();
-        String[] value = titik.split("[,?.@]+");
+        System.out.println(circles.size());
+        Circle yangDicari = new Circle(2);
+        System.out.println();
 
-        //System.out.println(value);
-        String titikx = value[0];
-        String titiky = value[1];
-        System.out.println("titik x = " +titikx+ " titik y = " +titiky);
+        Iterator<Circle>iterator=circles.iterator();
+        while (iterator.hasNext()){
+            Circle circle= iterator.next();
+            System.out.println(circle.getRound());
+        }
 
-        System.out.print("Masukan perintah :");
-        String bergerak= baris.readLine();
-        String[] valueBergerak = bergerak.split("[,?.@]+");*/
     }
 }

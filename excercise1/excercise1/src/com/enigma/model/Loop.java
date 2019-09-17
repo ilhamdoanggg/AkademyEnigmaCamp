@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class Loop {
-    public static void main(String[] args) throws IOException {
+   // public static void main(String[] args) throws IOException {
         Mobiljalan mobiljalan = new Mobiljalan();
         BufferedReader baris = new BufferedReader(new InputStreamReader(System.in));
         System.out.print("Masukan perintah :");

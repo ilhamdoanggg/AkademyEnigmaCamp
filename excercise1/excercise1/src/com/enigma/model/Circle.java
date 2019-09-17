@@ -5,6 +5,10 @@ public class Circle {
     private final Double pi= 3.14;
     //public boolean print;
 
+    public Circle(Integer r) {
+        this.r = r;
+    }
+
     public Double getSurface(){
         return pi*r*r;
     }
