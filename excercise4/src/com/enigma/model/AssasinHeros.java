@@ -8,9 +8,9 @@ package com.enigma.model;/*
 |
 */
 
-public class Assasin extends Heros {
+public class AssasinHeros extends Heros {
 
-    public Assasin(Integer hp, Integer mp, String roleHero, String nameHero, Integer demage, Integer skill) {
+    public AssasinHeros(Integer hp, Integer mp, String roleHero, String nameHero, Integer demage, Skill skill) {
         super(hp, mp, roleHero, nameHero, demage, skill);
 
     }
@@ -21,7 +21,7 @@ public class Assasin extends Heros {
                 ", mp=" + mp +
                 ", roleHero='" + roleHero + '\'' +
                 ", nameHero='" + nameHero + '\'' +
-                ", demage=" + demage +
+                ", demage=" + damage +
                 ", skill=" + skill +
                 '}';
     }

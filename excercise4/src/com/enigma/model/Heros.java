@@ -14,27 +14,25 @@ public class Heros extends Affected implements HitAble, Offensive{
     protected Integer mp;
     protected String  roleHero;
     protected String  nameHero;
-    protected Integer demage;
-    protected Integer skill;
+    protected Integer damage;
+    protected Skill skill;
 
-    public Heros(Integer hp, Integer mp, String roleHero, String nameHero, Integer demage, Integer skill) {
+    public Heros(Integer hp, Integer mp, String roleHero, String nameHero, Integer damage, Skill skill) {
         this.hp = hp;
         this.mp = mp;
         this.roleHero = roleHero;
         this.nameHero = nameHero;
-        this.demage = demage;
+        this.damage = damage;
         this.skill = skill;
     }
 
     public void decreaseMana(Integer manaCost){
-        this.mp=this.mp-manaCost[]
+        this.mp=this.mp-manaCost;
     }
-    public castSkill(Affected affected){
+    public void castSkill(Affected affected){
         skill.castSkill(affected);
         skill.decreaseMana(this);
     }
-
-
     @Override
     public void getHit(Integer demage) {
         this.hp = this.hp - damage;

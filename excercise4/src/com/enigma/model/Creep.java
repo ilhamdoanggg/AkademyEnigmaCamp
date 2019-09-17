@@ -11,23 +11,34 @@ package com.enigma.model;/*
 public class Creep extends Affected implements HitAble, Offensive {
     private Integer healthPoint;
     private Integer damage;
-    private Skill getSkill;
 
-    public Creep(Integer healthPoint, Integer damaged, Skill getSkill) {
+
+    public Creep(Integer healthPoint, Integer damage) {
         this.healthPoint = healthPoint;
-        this.damage = damaged;
-        this.getSkill = getSkill;
+        this.damage = damage;
     }
 
 
     @Override
-    public void getHit(Integer demage) {
+    public void getSkill(Affected affected, Integer damage) {
         super.getSkill(affected, damage);
     }
 
     @Override
-    public void attack(HitAble hitAble) {
-        this.healthPoint = this.healthPoint - damaged;
+    public void getHit(Integer demage) {
+        this.healthPoint=this.healthPoint-demage;
+    }
 
+    @Override
+    public void attack(HitAble hitAble) {
+        this.healthPoint = this.healthPoint - damage;
+    }
+
+    @Override
+    public String toString() {
+        return "Creep{" +
+                "healthPoint=" + healthPoint +
+                ", damage=" + damage +
+                '}';
     }
 }

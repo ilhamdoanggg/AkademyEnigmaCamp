@@ -1,42 +1,22 @@
-import com.enigma.model.Role;
-
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import com.enigma.model.Creep;
+import com.enigma.model.Heros;
+import com.enigma.model.Skill;
+import com.enigma.model.Tower;
+import com.sun.corba.se.impl.oa.toa.TOA;
 
 public class Main {
-    
-/*
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
+        Creep grobag = new Creep(300,10);
+        Skill lari = new Skill("jump", 50,100 );
+        Skill tonjok = new Skill("tonjok", 50,100 );
+        Tower tower = new Tower("jump", 50,100 );
+        Heros Wiro = new Heros(100, 50,"Assasin", "heros", 100, lari );
+        Heros saitama = new Heros(1000, 500,"Assasin", "heros", 1000, tonjok );
 
-    BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-    System.out.println("Welcome to MMORPG Game calculator");
-    System.out.println("1. Tank 2. Arcer 3. Mage ");
-    System.out.println("4. Assasin 5. Warior 5.Crusaider " );
-    System.out.print("Choose class Hero :");
-    String titik = br.readLine();
-    Integer value = Integer.parseInt(titik);
+        saitama.castSKill(grobag);
+        System.out.println(grobag.toString());
+        System.out.println(saitama.toString());
+        System.out.println(Wiro.toString());
 
-    System.out.print("Choose Level Hero :");
-    String level = br.readLine();
-    Integer levell = Integer.parseInt(level);
-
-    Role pahlawan = new Role(0,0,levell,0,0, value);
-        System.out.println(pahlawan.getClassHero(value));
-
-
-
-*/
-
-//    Integer values = Integer.parseInt(value[0]), Integer.parseInt(value[1]), Integer.parseInt(value[2]), Integer.parseInt(value[3]),Integer.parseInt(value[4]);
-
-/*
-
-        System.out.print("Choose Level Hero :");
-        String  levelChoose = br.readLine();
-        Integer level =Integer.parseInt(levelChoose);
-*/
-
-//    System.out.println(pahlawan.print());
     }
 }
