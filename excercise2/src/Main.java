@@ -1,31 +1,30 @@
-import com.enigma.model.Jalan;
-import com.enigma.model.Mobil;
-import com.sun.corba.se.spi.activation._ServerManagerImplBase;
+import com.enigma.model.Circle;
 
-import java.io.FilterReader;
-import java.io.IOException;
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.Iterator;
 
 public class Main {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
 
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+//        Circle circle = new Circle();
+        ArrayList<Circle> circles = new ArrayList<>();
+        circles.add(new Circle(5));
+        circles.add(new Circle(1));
+        circles.add(new Circle(3));
+        circles.add(new Circle(5));
+        circles.add(new Circle(5));
+        circles.add(new Circle(5));
+        circles.add(new Circle(5));
 
-        System.out.print("Masukan kordinat mobil x, y :");
-        String titik = br.readLine();
-        String[] value = titik.split(",");
-        Jalan mobil = new Jalan(Integer.parseInt(value[0]), Integer.parseInt(value[1]));
+        System.out.println(circles.size());
+        Circle yangDicari = new Circle(2);
+        System.out.println();
 
-        System.out.print("masukan jumblah bensin :" );
-        String jumblahBensin = br.readLine();
-        Integer bensin = Integer.parseInt(jumblahBensin);
-        mobil.addFuel(bensin);
-
-        System.out.print("masukan perintah :" );
-        mobil.setCommand(br.readLine());
-        mobil.runs();
-        System.out.println(mobil.print());
+        Iterator<Circle>iterator=circles.iterator();
+        while (iterator.hasNext()){
+            Circle circle= iterator.next();
+            System.out.println(circle.getRound());
+        }
 
     }
 }
