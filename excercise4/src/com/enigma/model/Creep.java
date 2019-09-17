@@ -34,7 +34,6 @@ public class Creep extends Affected implements HitAble, Offensive {
         this.healthPoint = this.healthPoint - damage;
     }
 
-    @Override
     public String toString() {
         return "Creep{" +
                 "healthPoint=" + healthPoint +

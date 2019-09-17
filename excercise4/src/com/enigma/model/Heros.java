@@ -25,9 +25,8 @@ public class Heros extends Affected implements HitAble, Offensive{
         this.damage = damage;
         this.skill = skill;
     }
-
     public void decreaseMana(Integer manaCost){
-        this.mp=this.mp-manaCost;
+        this.mp=this.mp - manaCost;
     }
     public void castSkill(Affected affected){
         skill.castSkill(affected);
@@ -41,5 +40,16 @@ public class Heros extends Affected implements HitAble, Offensive{
     @Override
     public void attack(HitAble hitAble) {
         hitAble.getHit(this.damage);
+    }
+
+    public String toString() {
+        return "Heros{" +
+                "hp=" + hp +
+                ", mp=" + mp +
+                ", roleHero='" + roleHero + '\'' +
+                ", nameHero='" + nameHero + '\'' +
+                ", damage=" + damage +
+                ", skill=" + skill +
+                '}';
     }
 }

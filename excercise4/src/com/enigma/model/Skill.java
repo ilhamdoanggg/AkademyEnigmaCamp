@@ -26,7 +26,6 @@ public class Skill {
         heroes.decreaseMana(this.manaCost);
     }
 
-    @Override
     public String toString() {
         return "Skill{" +
                 "skillName='" + skillName + '\'' +

@@ -29,7 +29,6 @@ public class Tower implements HitAble, Offensive {
     hitAble.getHit(this.damage);
     }
 
-    @Override
     public String toString() {
         return "Tower{" +
                 "namaTower='" + namaTower + '\'' +
