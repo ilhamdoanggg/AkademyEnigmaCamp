@@ -10,9 +10,12 @@ package com.enigma.model;/*
 
 public class AssasinHeros extends Heros {
 
-    public AssasinHeros(Integer hp, Integer mp, String roleHero, String nameHero, Integer demage, Skill skill) {
-        super(hp, mp, roleHero, nameHero, demage, skill);
+    protected Integer attkSpeed;
 
+    public AssasinHeros(Integer hp, Integer mp, String roleHero, String nameHero, Integer damage, Skill skill, Integer attkSpeed) {
+        super(hp, mp, roleHero, nameHero, damage, skill);
+        this.attkSpeed = attkSpeed;
+        this.damage=attkSpeed + 300;
     }
 
     public String toString() {
