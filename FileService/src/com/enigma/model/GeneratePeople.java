@@ -7,7 +7,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
-
 /**
  * ----------------------------------------------------
  * 9/18/2019 20:29 PM
@@ -16,16 +15,18 @@ import java.util.Objects;
  *
  * @author Ilhamdoanggg hanya manusia
  **/
-
 public class GeneratePeople {
-    String []name = new String[3];
-    String []age = new String[3];
-    String []gender = new String[3];
+    String[]name = new String[3];
+    String[]age = new String[3];
+    String[]gender = new String[3];
 
     public void ReadFile(){
-
+        /**
+         * path pembuatan file
+         * */
         Path currentRelativePath= Paths.get("src");
         File file = new File(currentRelativePath + "/database/local/data.txt");
+
         List<String> texts = new ArrayList<>();
         try {
             FileReader fileReader = new FileReader(file);
@@ -45,6 +46,8 @@ public class GeneratePeople {
                 age[i] = texts.get(i).substring(30,33).trim();
                 gender[i] = texts.get(i).substring(33,34).trim();
                 System.out.println(name[i]);
+//                System.out.println(age[i]);
+                System.out.println(gender[i]);
             }
 
         }catch (FileNotFoundException e){

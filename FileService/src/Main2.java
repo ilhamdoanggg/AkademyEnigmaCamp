@@ -37,7 +37,7 @@ public class Main2 {
             gender[i]=reader.readLine();
             person.add(new Person(name[i],age[i],gender[i]));
         }
-        /*
+        /**
         * path pembuatan file
         * */
         Path currentRelativePath= Paths.get("src");
