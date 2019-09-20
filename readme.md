@@ -67,28 +67,40 @@ AM (access modifire) + data type + nama method +(data type +variable)
 ```
 
 Operator
-- aritmatic operator
-- relasi opertor
-- 
-- 
-- 
+Arithmetic Operators
+```+ - x / % ++ --``` 
 
+Relational Operators
+``` <, >, ==, <=, >=, != , menhasilkan boolean```
+
+Logical Operators
+```&&, ||, !```
+
+Assignment Operators
+```+=, -=, *=, /=```
+
+Bitwise Operators
+```Biasanya dipakai ole kalangan pembuat algorithma encryptor```
 
 ``` java
 if (condition){
     true
-    } else
-    {false}
+    }else
+    {false
+}
+w
+
 ```
 ### loop
 
 ```java
-    (start + condition + increment) 
+/*Penulisan for*/
+for (int =1; i<=10; i++ ){
+    System.out.println(i);
+}                               
+/*Penulisan */
+ 
 ```
-
-
-while ()
-
 
  tugas
 
@@ -118,8 +130,9 @@ variable / attribute public, private, protected, final tapi pake nilai (final pu
 
 oop
 
-1. encapsulation
+### encapsulation
 
+pembungkusan suatu code dengan metod 
 penulisan code
 
 ```java
