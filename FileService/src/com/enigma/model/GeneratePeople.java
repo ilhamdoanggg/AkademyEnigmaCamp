@@ -1,12 +1,12 @@
 package com.enigma.model;
 
+import javax.jws.Oneway;
 import java.io.*;
+import java.lang.reflect.Array;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
+
 /**
  * ----------------------------------------------------
  * 9/18/2019 20:29 PM
@@ -16,9 +16,10 @@ import java.util.Objects;
  * @author Ilhamdoanggg hanya manusia
  **/
 public class GeneratePeople {
-    String[]name = new String[3];
-    String[]age = new String[3];
-    String[]gender = new String[3];
+
+    List<String > name = new ArrayList<>();
+    List<String > age = new ArrayList<>();
+    List<String > gender = new ArrayList<>();
 
     public void ReadFile(){
         /**
@@ -42,13 +43,14 @@ public class GeneratePeople {
             System.out.println(texts.size());
 
             for (int i = 0; i < texts.size() ; i++) {
-                name[i] = texts.get(i).substring(0,30).trim();
-                age[i] = texts.get(i).substring(30,33).trim();
-                gender[i] = texts.get(i).substring(33,34).trim();
-                System.out.println(name[i]);
-//                System.out.println(age[i]);
-                System.out.println(gender[i]);
-            }
+                name.add(texts.get(i).substring(0,30).trim());
+                age.add(texts.get(i).substring(30,33).trim());
+                gender.add(texts.get(i).substring(33,34).trim());
+                }
+
+            Integer umur1 = Integer.parseInt(texts.get(0).substring(31,34).trim());
+            Integer umur2 = Integer.parseInt(texts.get(1).substring(31,34).trim());
+            Integer umur3 = Integer.parseInt(texts.get(2).substring(31,34).trim());
 
         }catch (FileNotFoundException e){
             e.printStackTrace();
@@ -58,11 +60,12 @@ public class GeneratePeople {
 
     }
 
-    public String print() {
-        return "PeopleGenerator{" +
-                "name=" + Arrays.toString(name) +
-                ", umur=" + Arrays.toString(age) +
-                ", gender=" + Arrays.toString(gender) +
+    @Override
+    public String toString() {
+        return "GeneratePeople{" +
+                "name=" + name +
+                ", age=" + age +
+                ", gender=" + gender +
                 '}';
     }
 }
