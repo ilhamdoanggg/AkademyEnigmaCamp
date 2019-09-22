@@ -35,3 +35,6 @@ SELECT * from registrasi WHERE date_flaght >= date_registrasi + interval '14 day
 
 //menghitung total yang sudah bayar dan berangkat
 SELECT sum(bayar) as total from registrasi where date_flaght <= CURRENT_DATE ;
+
+SELECT sum(bayar) as total from ((registrasi LEFT JOIN peserta on peserta.id_peserta = registrasi.id_peserta) LEFT JOIN paket on paket.id_paket = registrasi.id_peket)
+where date_flaght <= CURRENT_DATE ;
