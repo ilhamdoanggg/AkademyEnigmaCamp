@@ -2,13 +2,13 @@ SELECT * FROM peserta;
 SELECT * FROM paket;
 SELECT * FROM registrasi;
 
-// siapa yang berangkat ke thailand
+-- siapa yang berangkat ke thailand
 
-select * from ((registrasi INNER JOIN peserta on peserta.id_peserta = registrasi.id_peserta) 
+select "name" from ((registrasi INNER JOIN peserta on peserta.id_peserta = registrasi.id_peserta) 
 INNER JOIN paket on paket.id_paket = registrasi.id_peket)
 where destination='thailand';
 
-//mencari yang belum berangkat liburan
+-- mencari yang belum berangkat liburan
 select * from ((registrasi INNER JOIN peserta on peserta.id_peserta = registrasi.id_peserta) 
 INNER JOIN paket on paket.id_paket = registrasi.id_peket)
 where date_flaght BETWEEN '2019-09-22' and '2019-10-13';
@@ -30,11 +30,14 @@ SELECT * from ((registrasi LEFT JOIN peserta on peserta.id_peserta = registrasi.
 LEFT JOIN paket on paket.id_paket = registrasi.id_peket)
 WHERE (SELECT date_flaght <= CURRENT_DATE);
 
-//mencari yang berangkat 2 minggu setelah booking
+-- mencari yang berangkat 2 minggu setelah booking
 SELECT * from registrasi WHERE date_flaght >= date_registrasi + interval '14 days';
 
-//menghitung total yang sudah bayar dan berangkat
+-- menghitung total yang sudah bayar dan berangkat
 SELECT sum(bayar) as total from registrasi where date_flaght <= CURRENT_DATE ;
 
-SELECT sum(bayar) as total from ((registrasi LEFT JOIN peserta on peserta.id_peserta = registrasi.id_peserta) LEFT JOIN paket on paket.id_paket = registrasi.id_peket)
+SELECT sum(bayar) as total from ((registrasi 
+LEFT JOIN peserta on peserta.id_peserta = registrasi.id_peserta) 
+LEFT JOIN paket on paket.id_paket = registrasi.id_peket)
 where date_flaght <= CURRENT_DATE ;
+
