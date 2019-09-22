@@ -1,0 +1,28 @@
+SELECT * FROM peserta;
+SELECT * FROM paket;
+SELECT * FROM registrasi;
+
+select * from ((registrasi INNER JOIN peserta on peserta.id_peserta = registrasi.id_peserta) 
+INNER JOIN paket on paket.id_paket = registrasi.id_peket)
+where destination='thailand';
+
+select * from ((registrasi INNER JOIN peserta on peserta.id_peserta = registrasi.id_peserta) 
+INNER JOIN paket on paket.id_paket = registrasi.id_peket)
+where date_flaght BETWEEN '2019-09-22' and '2019-10-13';
+
+
+select * from ((registrasi LEFT JOIN peserta on peserta.id_peserta = registrasi.id_peserta) 
+LEFT JOIN paket on paket.id_paket = registrasi.id_peket)
+where date_flaght <= CURRENT_DATE;
+
+select * from ((registrasi LEFT JOIN peserta on peserta.id_peserta = registrasi.id_peserta) 
+LEFT JOIN paket on paket.id_paket = registrasi.id_peket)
+where date_flaght >= CURRENT_DATE;
+
+select * from ((registrasi LEFT JOIN peserta on peserta.id_peserta = registrasi.id_peserta) 
+LEFT JOIN paket on paket.id_paket = registrasi.id_peket)
+where date_flaght BETWEEN '2019-09-22' and '2019-10-30';
+
+SELECT * from ((registrasi LEFT JOIN peserta on peserta.id_peserta = registrasi.id_peserta) 
+LEFT JOIN paket on paket.id_paket = registrasi.id_peket)
+WHERE (SELECT date_flaght <= CURRENT_DATE); 
