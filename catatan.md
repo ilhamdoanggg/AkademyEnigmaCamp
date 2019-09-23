@@ -62,3 +62,36 @@ for (int i = 0; i>3&&i<=7 ; i++) {
     System.out.println(i);
 }
 ```
+
+ -break
+
+```java
+for (int i = 0; i<=10 ; i++) {
+    if (i==5) break;
+    System.out.println(i);
+}
+```
+
+```java
+for (int i = 0; i<=10 ; i++) {
+    if (i==5) continue;
+    System.out.println(i);
+}
+```
+
+```java
+for (int i = 0; i<=10 ; i++) {
+        if (i==5||i==6||i==8) continue;
+    System.out.println(i);
+}
+```
+- perulangan di dalam perulangan shit
+```java
+for (int i = 5; i<=10 ; i++) {
+    System.out.print(i +":");
+        for (int j = 0; j <10 ; j++) {
+            System.out.print(j);
+        }
+    System.out.println();
+}
+```
