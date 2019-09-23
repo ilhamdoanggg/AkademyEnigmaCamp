@@ -51,3 +51,6 @@ LEFT JOIN paket on paket.id_paket = registrasi.id_peket)
 where date_flaght <= CURRENT_DATE
 GROUP BY peserta."name";
 
+-- membuat table dari tabel
+create tabel nama_table_backup
+	select * from tabel yang_mau_di_backup;
