@@ -36,25 +36,29 @@ public static void main(String[] args) {
 fucking looping
 ### for
 
-```java
+ format penulisan
 
+```java
+for (declar; condition; Increment) {
+	}
+```
+
+```java
 for (int i = 0; i<=7; i++) {
-            System.out.println(i);
-        }
+    System.out.println(i);
+}
 ```
 
 jika kondisi bernilai false maka langsung rejected
 
 ```java
-
 for (int i = 0; i>3||i<=7 ; i++) {
-            System.out.println(i);
-        }
+     System.out.println(i);
+}
 ```
 
 ```java
-
 for (int i = 0; i>3&&i<=7 ; i++) {
-            System.out.println(i);
-        }
+    System.out.println(i);
+}
 ```
