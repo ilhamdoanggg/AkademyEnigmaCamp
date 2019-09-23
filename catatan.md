@@ -24,11 +24,13 @@ String array type
 public static void main(String[] args) {
 	String teman []= new  String[5];
         teman[0]="angga";
-        teman[1]="angga";
-        teman[2]="angga";
-        teman[3]="angga";
-        teman[4]="angga";
+        teman[1]="sczcxc asda";
+        teman[2]="sadjasd";
+        teman[3]="tesada";
+        teman[4]="asad sadaqw";
         System.out.println(teman[3]);
+        /*akan erro jika lebih dari leng*/
+        teman[5]="aasdyere";
     }
 ```
 
