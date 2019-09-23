@@ -9,8 +9,7 @@ public static void main(String[] args) {
 	System.out.print(a[1]);
 	System.out.print(a[2]);
 	System.out.print(a[3]);
-
-/*jika di tambah lebih dari index*/
+	/*jika di tambah lebih dari index*/
 	System.out.print(a[4]);
 	a[3]=11;
 	System.out.print(a[3]);
@@ -31,6 +30,31 @@ public static void main(String[] args) {
         System.out.println(teman[3]);
         /*akan erro jika lebih dari leng*/
         teman[5]="aasdyere";
-    }
+}
 ```
 
+fucking looping
+### for
+
+```java
+
+for (int i = 0; i<=7; i++) {
+            System.out.println(i);
+        }
+```
+
+jika kondisi bernilai false maka langsung rejected
+
+```java
+
+for (int i = 0; i>3||i<=7 ; i++) {
+            System.out.println(i);
+        }
+```
+
+```java
+
+for (int i = 0; i>3&&i<=7 ; i++) {
+            System.out.println(i);
+        }
+```
