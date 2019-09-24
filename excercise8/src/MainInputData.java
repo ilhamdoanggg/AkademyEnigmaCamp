@@ -18,16 +18,18 @@ public class MainInputData {
         System.out.println("Jumblah data ");
         Integer search =Integer.parseInt( reader.readLine());
             for (int i = 0; i < search; i++) {
-                System.out.println("ID");
+                System.out.print("ID");
                 Integer id =Integer.parseInt( reader.readLine());
-                System.out.println("Name ");
+                System.out.print("Name ");
                 String name = reader.readLine();
-                System.out.println("Tempat Lahir ");
+                System.out.print("Tempat Lahir ");
                 String  tempatLahir = reader.readLine();
-                System.out.println("Tanggal Lahir ");
+                System.out.print("Tanggal Lahir ");
                 Date tanggalLahir =Date.valueOf( reader.readLine());
-                System.out.println("Kelamin ");
+                System.out.print("Kelamin ");
                 String gender = reader.readLine();
+
+                System.out.println( id + name +tempatLahir + tanggalLahir + gender);
                 /*System.out.println(id, name, tempatLahir, tanggalLahir, gender);*/
                 Students students =new Students(id, name, tempatLahir, tanggalLahir,gender);
                 StudentService.create(students);
