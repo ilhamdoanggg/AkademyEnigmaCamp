@@ -4,10 +4,8 @@ import com.enigma.connection.DBConnection;
 import com.enigma.model.Students;
 import sun.security.krb5.internal.tools.Klist;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import javax.security.auth.login.AccountException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -46,8 +44,9 @@ public class StudentService {
         List<Students> students= new ArrayList<>();
         Connection connection= DBConnection.letsCreateConnections();
         try {
-            Statement statement =connection.createStatement();
-            ResultSet res=statement.executeQuery("select *from students");
+//            Statement statement =connection.createStatement();
+            PreparedStatement preparedStatement = connection.prepareStatement("select *from students");
+            ResultSet res=preparedStatement.executeQuery();
             for (int i = 0; true ; i++) {
                 if (res.next()){
                     students.add(new  Students(res.getInt("Id_student")
@@ -95,4 +94,21 @@ public class StudentService {
         }
         return student;
     }
+    /*
+    * delete data berdasarkan ID
+    * */
+    public void delete(Students students) {
+        String sqlDelete = "DELETE FROM students WHERE Id_student = ?";
+        Connection connection= DBConnection.letsCreateConnections();
+        try {
+
+            PreparedStatement preparedStatement = connection.prepareStatement(sqlDelete);
+            preparedStatement.setInt(1, students.getId());
+            preparedStatement.executeUpdate();
+
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
 }

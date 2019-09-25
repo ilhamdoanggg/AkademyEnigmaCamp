@@ -2,11 +2,9 @@ package com.enigma.service;
 
 import com.enigma.connection.DBConnection;
 import com.enigma.model.Major;
+import jdk.nashorn.internal.runtime.UnwarrantedOptimismException;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,11 +19,15 @@ public class MajorService {
 
     public static void create (Major major){
         Connection connection = DBConnection.letsCreateConnections();
+        String sqlInsert= "insert into major valuse (?,?)";
+
         try {
-            Statement statement = connection.createStatement();
-            String sqlInsert="insert into students values("+major.getIdMajor()+","+
-                    "'"+ major.getManjorName()+"'"+")";
-            statement.execute(sqlInsert);
+            PreparedStatement preparedStatement = connection.prepareStatement(sqlInsert);
+            preparedStatement.setString(1, major.getIdMajor());
+            preparedStatement.setString(2, major.getManjorName());
+
+            preparedStatement.executeUpdate();
+
             } catch (SQLException e) {
                 e.printStackTrace();
             }
@@ -37,12 +39,13 @@ public class MajorService {
      * @return data major
      * */
 
-    public static List<Major> getAllMajor(){
+    public static List<Major> getAllMajor() throws SQLException {
+        String sqlSelect="select * from major";
         List<Major> majors= new ArrayList<>();
         Connection connection= DBConnection.letsCreateConnections();
         try {
-            Statement statement =connection.createStatement();
-            ResultSet res=statement.executeQuery("select *from major");
+            PreparedStatement preparedStatement = connection.prepareStatement(sqlSelect);
+            ResultSet res=preparedStatement.executeQuery();
             for (int i = 0; true ; i++) {
                 if (res.next()){
                     majors.add(new Major(res.getString("Id_major")
