@@ -9,6 +9,8 @@
         <property name="hibernate.current_session_context_class">thread</property>
         <property name="hibernate.connection.username">postgres</property>
         <property name="hibernate.connection.password">lake</property>
-        <mapping resource="Students.hbm.xml"></mapping>
+
+        <mapping resource="Students.hbm.xml"/>
+        <mapping resource="Subject.hbm.xml"/>
     </session-factory>
 </hibernate-configuration>
