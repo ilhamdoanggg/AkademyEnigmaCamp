@@ -7,6 +7,7 @@ import org.hibernate.Session;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 /**
  * * Create at 9/25/2019 9:20 PM @author Ilhamdoanggg
@@ -31,6 +32,16 @@ public class StudentService {
         session.getTransaction().commit();
         System.out.println(student.toString());
 
+    }
+
+    public  void getStudents(){
+        Session session = HibernateConfig.getSessionFactory().getCurrentSession();
+        session.beginTransaction();
+        List<Students> students = session.createQuery("from com.enigma.model.Student")
+                .getResultList();
+        for (Students student: students) {
+            System.out.println(student.toString());
+        }
     }
     /*
     * */
