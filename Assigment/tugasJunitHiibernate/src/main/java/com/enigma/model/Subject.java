@@ -1,11 +1,21 @@
 package com.enigma.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 /**
  * * Create at 9/26/2019 3:38 AM @author Ilhamdoanggg
  **/
+@Entity
+@Table(name = "subject")
 public class Subject {
+    @Id
     private Integer id;
+    @Column(name = "name_subject")
     private String name;
+    @Column (name = "sks")
     private Integer sks;
 
     public Subject() {

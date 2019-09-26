@@ -10,17 +10,10 @@ import java.util.List;
  **/
 public class Main {
     public static void main(String[] args) {
+
         SessionFactory sessionFactory= HibernateConfig.getSessionFactory();
         Session session = sessionFactory.getCurrentSession();
-        session.beginTransaction();
-
-        List<Students> students = session.createQuery(" from com.enigma.model.Students ").getResultList();
-        session.getTransaction().commit();
-
-        for (Students student:students) {
-            System.out.println(student.toString());
 
         }
 
     }
-}

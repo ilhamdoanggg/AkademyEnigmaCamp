@@ -19,4 +19,5 @@ public class SubjectService {
         session.save(subjects);
         session.getTransaction().commit();
     }
+
 }
