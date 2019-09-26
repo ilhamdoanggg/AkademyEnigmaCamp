@@ -1,14 +1,12 @@
 package com.enigma.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.Date;
 
 /**
  * * Create at 9/25/2019 9:19 PM @author Ilhamdoanggg
  **/
+
 @Entity
 @Table(name = "student")
 public class Students {
@@ -24,21 +22,29 @@ public class Students {
     @Column (name = "birth_date")
     private Date birthDate;
 
-    @Column(name = "id_room")
-    private Integer id_room;
-
     @Column (name = "gender")
     private String gender;
 
-    public Students() {    }
+    @ManyToOne
+    @JoinColumn(name = "id_room")
+    private Room room;
 
-    public Students(Integer id, String name, String birthPlace, Date birthDate, Integer id_room, String gender) {
+    @ManyToMany
+    @JoinTable(name = "subject_student",
+            joinColumns={@JoinColumn(name ="id")},
+            inverseJoinColumns={@JoinColumn(name = "id_student")})
+    private SubjectStudent studentSubject;
+
+    public Students(Integer id, String name, String birthPlace, Date birthDate, String gender, Room room){
         this.id = id;
         this.name = name;
         this.birthPlace = birthPlace;
         this.birthDate = birthDate;
-        this.id_room = id_room;
         this.gender = gender;
+        this.room = room;
+    }
+
+    public Students() {
     }
 
     public Integer getId() {
@@ -73,20 +79,28 @@ public class Students {
         this.birthDate = birthDate;
     }
 
-    public Integer getId_room() {
-        return id_room;
-    }
-
-    public void setId_room(Integer id_room) {
-        this.id_room = id_room;
-    }
-
     public String getGender() {
         return gender;
     }
 
     public void setGender(String gender) {
         this.gender = gender;
+    }
+
+    public Room getRoom() {
+        return room;
+    }
+
+    public void setRoom(Room room) {
+        this.room = room;
+    }
+
+    public SubjectStudent getStudentSubject() {
+        return studentSubject;
+    }
+
+    public void setStudentSubject(SubjectStudent studentSubject) {
+        this.studentSubject = studentSubject;
     }
 
     @Override
@@ -96,8 +110,9 @@ public class Students {
                 ", name='" + name + '\'' +
                 ", birthPlace='" + birthPlace + '\'' +
                 ", birthDate=" + birthDate +
-                ", id_room=" + id_room +
                 ", gender='" + gender + '\'' +
+                ", room=" + room.getId() +
+                ", subject Student=" + studentSubject.getId()+
                 '}';
     }
 }

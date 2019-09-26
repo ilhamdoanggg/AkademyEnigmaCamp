@@ -13,10 +13,13 @@ import javax.persistence.Table;
 public class Subject {
     @Id
     private Integer id;
+
     @Column(name = "name_subject")
     private String name;
+
     @Column (name = "sks")
     private Integer sks;
+
 
     public Subject() {
     }

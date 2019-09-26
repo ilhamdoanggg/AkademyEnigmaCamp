@@ -1,9 +1,8 @@
 package com.enigma.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.List;
+import java.util.Set;
 
 /**
  * * Create at 9/26/2019 2:10 PM @author Ilhamdoanggg
@@ -20,12 +19,16 @@ public class Room {
     @Column(name = "capacity")
     private Integer capacity;
 
+    @OneToMany(mappedBy = "room")
+    private List<Students> students;
+
     public Room() {
     }
 
-    public Room(Integer id, String roomName) {
+    public Room(Integer id, String roomName, Integer capacity) {
         this.id = id;
         this.roomName = roomName;
+        this.capacity = capacity;
     }
 
     public Integer getId() {
@@ -44,11 +47,29 @@ public class Room {
         this.roomName = roomName;
     }
 
+    public Integer getCapacity() {
+        return capacity;
+    }
+
+    public void setCapacity(Integer capacity) {
+        this.capacity = capacity;
+    }
+
+    public List<Students> getStudents() {
+        return students;
+    }
+
+    public void setStudents(List<Students> students) {
+        this.students = students;
+    }
+
     @Override
     public String toString() {
         return "Room{" +
                 "id=" + id +
                 ", roomName='" + roomName + '\'' +
+                ", capacity=" + capacity +
+                ", students=" + students +
                 '}';
     }
 }

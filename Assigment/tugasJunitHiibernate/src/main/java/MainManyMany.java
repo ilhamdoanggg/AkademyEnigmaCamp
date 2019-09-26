@@ -1,6 +1,7 @@
 import com.enigma.config.HibernateConfig;
 import com.enigma.model.Room;
 import com.enigma.model.Students;
+import com.enigma.model.SubjectStudent;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
@@ -9,16 +10,23 @@ import java.util.List;
 /**
  * * Create at 9/25/2019 9:22 PM @author Ilhamdoanggg
  **/
-public class Main {
+public class MainManyMany {
     public static void main(String[] args) {
 
         SessionFactory sessionFactory= HibernateConfig.getSessionFactory();
         Session session = sessionFactory.getCurrentSession();
 
         session.beginTransaction();
+        SubjectStudent yangDidapet = session.get(SubjectStudent.class, 1);
+        System.out.println(yangDidapet);
+        List<Students>students= yangDidapet.getStudents();
+
+        /*
 
             Room classYangDiDapat= session.get(Room.class, 1);
-            List<Students>students= classYangDiDapat.getStudents();
+
+
+        */
 
             for (Students student : students) {
                 System.out.println(student.toString());
