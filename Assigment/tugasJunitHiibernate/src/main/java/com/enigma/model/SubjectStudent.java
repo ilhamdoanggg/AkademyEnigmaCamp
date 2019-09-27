@@ -13,23 +13,20 @@ public class SubjectStudent {
     @Id
     private Integer id;
 
-    @Column(name = "id_subject")
-    private Integer idSubject;
-
-    @Column(name = "id_student")
-    private Integer idStudents;
-
-    @ManyToMany(mappedBy = "studentSubject")
-    private List<Students> students;
+    @ManyToOne
+    @JoinColumn(name = "id_subject")
+    private  Subject subject;
+    @ManyToOne
+    @JoinColumn(name = "id_student")
+    private Students student;
 
     public SubjectStudent() {
     }
 
-    public SubjectStudent(Integer id, Integer idSubject, Integer idStudents, List<Students> students) {
+    public SubjectStudent(Integer id, Subject subject, Students student) {
         this.id = id;
-        this.idSubject = idSubject;
-        this.idStudents = idStudents;
-        this.students = students;
+        this.subject = subject;
+        this.student = student;
     }
 
     public Integer getId() {
@@ -40,39 +37,34 @@ public class SubjectStudent {
         this.id = id;
     }
 
-    public Integer getIdSubject() {
-        return idSubject;
+    public Subject getSubject() {
+        return subject;
     }
 
-    public void setIdSubject(Integer idSubject) {
-        this.idSubject = idSubject;
+    public void setSubject(Subject subject) {
+        this.subject = subject;
     }
 
-    public Integer getIdStudents() {
-        return idStudents;
+    public Students getStudent() {
+        return student;
     }
 
-    public void setIdStudents(Integer idStudents) {
-        this.idStudents = idStudents;
-    }
-
-    public List<Students> getStudents() {
-        return students;
-    }
-
-    public void setStudents(List<Students> students) {
-        this.students = students;
+    public void setStudent(Students student) {
+        this.student = student;
     }
 
     @Override
     public String toString() {
         return "SubjectStudent{" +
                 "id=" + id +
-                ", idSubject=" + idSubject +
-                ", idStudents=" + idStudents +
-                ", students=" + students +
+                ", subject=" + subject.getId() +
+                ", student=" + student.getId() +
                 '}';
     }
+
+    //    @ManyToMany(mappedBy = "id_student")
+//    private List<Students> students;
+
     /*
     @JoinTable(name = "stock_category",
     catalog = "mkyongdb", joinColumns = {

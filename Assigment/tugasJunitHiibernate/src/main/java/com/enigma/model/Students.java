@@ -2,6 +2,7 @@ package com.enigma.model;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 /**
  * * Create at 9/25/2019 9:19 PM @author Ilhamdoanggg
@@ -29,22 +30,23 @@ public class Students {
     @JoinColumn(name = "id_room")
     private Room room;
 
-    @ManyToMany
-    @JoinTable(name = "subject_student",
-            joinColumns={@JoinColumn(name ="id")},
-            inverseJoinColumns={@JoinColumn(name = "id_student")})
-    private SubjectStudent studentSubject;
+    @OneToMany(mappedBy = "student")
+    private List<SubjectStudent> subjectStudents;
+    /*@JoinTable(name = "subject_student",
+            joinColumns={@JoinColumn(name ="id_student")},
+            inverseJoinColumns={@JoinColumn(name = "id")})*/
 
-    public Students(Integer id, String name, String birthPlace, Date birthDate, String gender, Room room){
+    public Students() {
+    }
+
+    public Students(Integer id, String name, String birthPlace, Date birthDate, String gender, Room room, List<SubjectStudent> subjectStudents) {
         this.id = id;
         this.name = name;
         this.birthPlace = birthPlace;
         this.birthDate = birthDate;
         this.gender = gender;
         this.room = room;
-    }
-
-    public Students() {
+        this.subjectStudents = subjectStudents;
     }
 
     public Integer getId() {
@@ -95,12 +97,12 @@ public class Students {
         this.room = room;
     }
 
-    public SubjectStudent getStudentSubject() {
-        return studentSubject;
+    public List<SubjectStudent> getSubjectStudents() {
+        return subjectStudents;
     }
 
-    public void setStudentSubject(SubjectStudent studentSubject) {
-        this.studentSubject = studentSubject;
+    public void setSubjectStudents(List<SubjectStudent> subjectStudents) {
+        this.subjectStudents = subjectStudents;
     }
 
     @Override
@@ -112,7 +114,7 @@ public class Students {
                 ", birthDate=" + birthDate +
                 ", gender='" + gender + '\'' +
                 ", room=" + room.getId() +
-                ", subject Student=" + studentSubject.getId()+
+                ", subjectStudents=" + subjectStudents +
                 '}';
     }
 }

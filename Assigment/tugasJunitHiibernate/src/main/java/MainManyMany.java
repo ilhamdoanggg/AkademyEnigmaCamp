@@ -5,6 +5,7 @@ import com.enigma.model.SubjectStudent;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
+import java.util.HashSet;
 import java.util.List;
 
 /**
@@ -19,16 +20,10 @@ public class MainManyMany {
         session.beginTransaction();
         SubjectStudent yangDidapet = session.get(SubjectStudent.class, 1);
         System.out.println(yangDidapet);
-        List<Students>students= yangDidapet.getStudents();
+        List<Students>students = new HashSet<>();
+//        List<Students>students =yangDidapet.;
 
-        /*
-
-            Room classYangDiDapat= session.get(Room.class, 1);
-
-
-        */
-
-            for (Students student : students) {
+            for (Students student: Students) {
                 System.out.println(student.toString());
             }
 
