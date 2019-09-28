@@ -16,18 +16,23 @@ public class Main {
         Session session = sessionFactory.getCurrentSession();
 
         session.beginTransaction();
+        List<Students>students=session.createCriteria(Students.class).list();
 
+        for (Students student : students) {
+            System.out.println(student.toString());
+        }
+        session.getTransaction().commit();
+/*
             Room classYangDiDapat= session.get(Room.class, 1);
             List<Students>students= classYangDiDapat.getStudents();
 
             for (Students student : students) {
                 System.out.println(student.toString());
-            }
+            }*/
 
-        session.getTransaction().commit();
 
         /*session.beginTransaction();
-        Room classYangDiDapat= session.get(Room.class, 1);
+        Room classYangDiDapat = session.get(Room.class, 1);
         System.out.println(classYangDiDapat.toString());
         Students studentYangDidapat=session.get(Students.class, 1);
 

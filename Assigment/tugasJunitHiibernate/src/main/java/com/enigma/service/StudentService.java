@@ -30,7 +30,6 @@ public class StudentService {
         Students student = session.get(Students.class, 2) ;
         session.getTransaction().commit();
         System.out.println(student.toString());
-
     }
 
     public  void getStudents(){

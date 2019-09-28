@@ -20,12 +20,12 @@ public class MainManyMany {
         session.beginTransaction();
         SubjectStudent yangDidapet = session.get(SubjectStudent.class, 1);
         System.out.println(yangDidapet);
-        List<Students>students = new HashSet<>();
-//        List<Students>students =yangDidapet.;
-
-            for (Students student: Students) {
-                System.out.println(student.toString());
-            }
+//        List<Students>students = new HashSet<>();
+////        List<Students>students =yangDidapet.;
+//
+//            for (Students student: Students) {
+//                System.out.println(student.toString());
+//            }
 
         session.getTransaction().commit();
 
