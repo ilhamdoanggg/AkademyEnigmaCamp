@@ -5,7 +5,7 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.enigma</groupId>
-  <artifactId>excercise11</artifactId>
+  <artifactId>robotJsp</artifactId>
   <version>1.0-SNAPSHOT</version>
   <packaging>war</packaging>
 
@@ -38,7 +38,7 @@
   </dependencies>
 
   <build>
-    <finalName>excercise11</finalName>
+    <finalName>robotJSP</finalName>
     <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
       <plugins>
         <plugin>
