@@ -13,19 +13,6 @@ import java.util.Date;
 public class StudentInputServlet extends HttpServlet {
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        Integer id = Integer.parseInt( req.getParameter("id"));
-        String name = req.getParameter("name");
-        String birth_place = req.getParameter("birth_place");
-        Date birth_date = java.sql.Date.valueOf(req.getParameter("birth_date"));
-        String gender = req.getParameter("gender");
-        Integer room=Integer.parseInt(req.getParameter("room"));
-        Student student = new Student(id, name,birth_place,birth_date,gender, room);
-        StudentDao.create(student);
-        resp.sendRedirect("student.doang");
-    }
-
-    @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.getRequestDispatcher("student/student-add.jsp").forward(req,resp);
     }
