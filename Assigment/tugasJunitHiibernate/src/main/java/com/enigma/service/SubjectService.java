@@ -9,7 +9,6 @@ import org.hibernate.Session;
  **/
 public class SubjectService {
 
-
     public static void create(Subject subject){
         Session session = HibernateConfig.getSessionFactory().getCurrentSession();
         Subject subjects = new Subject();
@@ -19,5 +18,6 @@ public class SubjectService {
         session.save(subjects);
         session.getTransaction().commit();
     }
+
 
 }

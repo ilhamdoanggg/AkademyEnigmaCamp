@@ -22,6 +22,10 @@ public class Main {
             System.out.println(student.toString());
         }
         session.getTransaction().commit();
+
+    }
+
+}
 /*
             Room classYangDiDapat= session.get(Room.class, 1);
             List<Students>students= classYangDiDapat.getStudents();
@@ -40,6 +44,3 @@ public class Main {
         session.save(studentYangDidapat);
         session.getTransaction().commit();*/
 
-        }
-
-    }
