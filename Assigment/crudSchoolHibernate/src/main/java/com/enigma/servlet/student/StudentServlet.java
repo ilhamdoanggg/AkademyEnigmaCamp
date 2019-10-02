@@ -14,9 +14,11 @@ import java.util.List;
 
 public class StudentServlet extends HttpServlet {
 
+    /*
+    * get All Student
+    * */
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
         SessionFactory sessionFactory = HibernateConfiguration.getSessionFactory();
         Session session = sessionFactory.getCurrentSession();
         session.beginTransaction();

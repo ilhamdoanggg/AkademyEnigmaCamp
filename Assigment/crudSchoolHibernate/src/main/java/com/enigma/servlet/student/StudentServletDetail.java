@@ -23,18 +23,4 @@ public class StudentServletDetail extends HttpServlet {
         req.setAttribute("detail", StudentDao.getById(hasil));
         req.getRequestDispatcher("student/student-detail.jsp").forward(req,resp);
     }
-
-    @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        Integer id = Integer.parseInt( req.getParameter("id"));
-        String name = req.getParameter("name");
-        String birth_place = req.getParameter("birth_place");
-        Date birth_date = java.sql.Date.valueOf(req.getParameter("birth_date"));
-        String gender = req.getParameter("gender");
-        Integer room=Integer.parseInt(req.getParameter("room"));
-        Student student = new Student(id, name,birth_place,birth_date,gender, room);
-        StudentDao.create(student);
-        /* req.getRequestDispatcher("student/student-add.jsp").forward(req,resp);*/
-        resp.sendRedirect("student.doang");
-    }
 }
