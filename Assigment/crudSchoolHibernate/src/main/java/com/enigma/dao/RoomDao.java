@@ -17,16 +17,16 @@ public class RoomDao {
         session.getTransaction().commit();
         session.close();
     }
-
-    public static List<Room> getById(Integer id){
-        SessionFactory sessionFactory = HibernateConfiguration.getSessionFactory();
-        Session session = sessionFactory.getCurrentSession();
-        session.beginTransaction();
-        /*error di sini*/
-        List<Room> room = session.createQuery("from com.enigma.model.Room where id =5").getResultList();
-        session.getTransaction().commit();
-        session.close();
-        return room;
-    }
+//
+//    public static List<Room> getById(Integer id){
+//        SessionFactory sessionFactory = HibernateConfiguration.getSessionFactory();
+//        Session session = sessionFactory.getCurrentSession();
+//        session.beginTransaction();
+//        /*error di sini*/
+//        List<Room> room = session.createQuery("from com.enigma.model.Room where id =5").getResultList();
+//        session.getTransaction().commit();
+//        session.close();
+//        return room;
+//    }
 
 }
