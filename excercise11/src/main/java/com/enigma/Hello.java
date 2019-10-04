@@ -5,11 +5,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class Hello extends HttpServlet {
 
+    private static Logger logger= Logger.getLogger(Hello.class.getName());
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        logger.log(Level.INFO, "Do Get Di panggil!!");
+    }
+
+    @Override
+    protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         System.out.println("Ini Di panggil!!!!");
         String name=req.getParameter("name");
         String output="<html>" +
@@ -19,17 +28,13 @@ public class Hello extends HttpServlet {
                 "</html>";
         resp.setContentType("text/html");
         resp.getWriter().print(output);
-    }
-
-    @Override
-    protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        super.service(req, resp);
-        System.out.println("ini Di panggil!!!");
+        logger.log(Level.INFO, "Do Get Di panggil!!");
+        /*System.out.println("ini Di panggil!!!");*/
     }
 
     @Override
     public void init() throws ServletException {
         super.init();
-        System.out.println("ini Di Panggil!!!");
+        logger.log(Level.INFO, "Do Get Di panggil!!");
     }
 }

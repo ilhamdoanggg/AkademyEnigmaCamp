@@ -42,6 +42,8 @@
 --%>
 
 <a href="hello.doang?name=Ilham">Hai</a>
+
 <a href="apakabar.doang?angka1=7&&angka2=8">Apa Kabar</a>
+<a href="student.doang">Student</a>
 </body>
 </html>
