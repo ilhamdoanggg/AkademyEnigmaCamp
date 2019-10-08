@@ -13,16 +13,26 @@ import java.util.Optional;
 
 @Controller
 public class ArtistController {
+
+    /*
+    * Include Artist Repository
+    * */
     @Autowired
     ArtistRepo artistRepo;
 
-  @GetMapping("/artist")
-  public String toArtist(Model model){
+    /*
+    * show all Artist data with Param Model
+    * */
+    @GetMapping("/artist")
+    public String toArtist(Model model){
       List<Artist> artists = artistRepo.findAll();
       model.addAttribute("artistList", artists);
       return "/artist/artist-view";
-  }
+    }
 
+    /*
+    * Add data Artist with method get
+    * */
     @GetMapping("/add-artist")
     public ModelAndView toArtistViews(){
         return new ModelAndView(
@@ -30,6 +40,9 @@ public class ArtistController {
                 "artist", new Artist());
     }
 
+    /*
+    * Edit data artist in form view
+    * */
     @GetMapping("/edit-artist")
     public ModelAndView toArtistDetail(
             @RequestParam Integer id, Model model){
@@ -40,6 +53,9 @@ public class ArtistController {
                 "artist", artist);
     }
 
+    /*
+    * Save data Artist and redirect to artist view
+    * */
     @PostMapping("/add-artist")
     public String toArtistForm(@ModelAttribute(
             "artist")Artist artist, Model model){
