@@ -17,10 +17,10 @@
 <fmt:form modelAttribute="artist"
           action="add-artist" method="post">
     <h2>Isi Form</h2>
-    Id : <fmt:input path="id" text="${artist.id}" />
-    Name : <fmt:input path="name" text="${artist.name}"/>
-    Date Debut:<fmt:input path="debut" text="${artist.debut}"/>
-    From :<fmt:input path="artistFrom" text="${artist.artistFrom}"/>
+    Id : <fmt:input path="id" />
+    Name : <fmt:input path="name" />
+    Date Debut:<fmt:input type="date" path="debut"/>
+    From :<fmt:input path="artistFrom" />
         <input type="submit">
 </fmt:form>
 

@@ -30,11 +30,14 @@ public class ArtistController {
                 "artist", new Artist());
     }
 
-    @GetMapping("/artist/")
-    public String toArtistDetail(@PathVariable(required = true) Integer id, Model model){
-        Optional<Artist> artist = artistRepo.findById(id);
-        model.addAttribute("artistList", artist);
-        return "redirect:/add-artist";
+    @GetMapping("/edit-artist")
+    public ModelAndView toArtistDetail(
+            @RequestParam Integer id, Model model){
+        Artist artist = artistRepo.getOne(id);
+        model.addAttribute("artist", artist);
+        return new ModelAndView(
+                "/artist/artist-form",
+                "artist", artist);
     }
 
     @PostMapping("/add-artist")

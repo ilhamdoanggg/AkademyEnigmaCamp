@@ -4,7 +4,9 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 public class Artist {
@@ -14,6 +16,10 @@ public class Artist {
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date debut;
     private String artistFrom;
+
+    @OneToMany(mappedBy = "idArtist")
+    private List<Song> song;
+
 
     public Artist() {
     }

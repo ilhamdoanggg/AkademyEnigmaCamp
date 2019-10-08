@@ -38,7 +38,7 @@
                 <td><c:out value="${artist.name}"></c:out></td>
                 <td><c:out value="${artist.debut}"></c:out></td>
                 <td><c:out value="${artist.artistFrom}"></c:out></td>
-                <td><a href="/artist/${artist.id}">detail</a></td>
+                <td><a href="/edit-artist?id=${artist.id}">detail</a></td>
             </tr>
         </c:forEach>
     </tbody>
