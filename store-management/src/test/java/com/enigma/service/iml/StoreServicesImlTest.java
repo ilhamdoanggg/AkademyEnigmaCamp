@@ -1,5 +1,6 @@
 package com.enigma.service.iml;
 
+import com.enigma.entity.Product;
 import com.enigma.entity.Store;
 import com.enigma.repository.StoreRepository;
 import org.junit.After;
@@ -47,24 +48,25 @@ public class StoreServicesImlTest {
         Store newStore = new Store("asad",
                 "asdad","sdad","sad");
         storeRepository.save(newStore);
-//        storeRepository.findById().get()
-        Integer getId = 1;
+        storeRepository.findById(newStore.getId());
+        Integer getId = newStore.getId();
         assertEquals(getId,newStore.getId());
     }
 
     @Test
-    public void storeGetAllProductShouldTrueWhenSizeEquals2(){
+    public void storeGetAllStoreShouldTrueWhenSizeEquals2(){
         Store newStore = new Store("asad",
                 "asdad","sdad","sad");
         Store newStores = new Store("asadasd",
-                "klsakda dabdabdabsd","amsdad sdjajdkbaasjkdbajkd","sad");
+                "klsakda dabdabdabsd",
+                "amsdad sdjajdkbaasjkdbajkd","sad");
         storeRepository.save(newStores);
         storeRepository.save(newStore);
         assertEquals(2, storeRepository.findAll().size());
     }
 
     @Test
-    public void testDeleteStore() throws Exception{
+    public void testDeleteStoreShouldTrue() throws Exception{
         Store newStore = new Store("asad",
                 "asdad","sdad","sad");
         //when(newStore.getId(any())).thenReturn();
@@ -86,18 +88,19 @@ public class StoreServicesImlTest {
         assertFalse(storeRepository.findById(newStore.getId()).isPresent());
     }
 
-    @Test
-    public void storeSaveExceptionCreatedFailed(){
-        Store newStore= new Store("asa",
-                "asas","asada","sdada");
+    /*@Test
+    public void storeSaveExceptionCreatedFailedWhenNameStoreIsEmty(){
+        Store newStore= new Store("asasda",
+                "sdasda","asdads","asdad");
+        //when(storeRepository.save(any(Store.class))).thenReturn(new );
         storeRepository.save(newStore);
+        //storeRepository.deleteAll();
         storeRepository.findById(newStore.getId()).get();
-        assertNotEquals("", );
-    }
+        //assertThat(newStore.getStoreName()).isSameAs;
+    }*/
 
-/*
     @After
     public void deleteData(){
         storeRepository.deleteAll();
-    }*/
+    }
 }
