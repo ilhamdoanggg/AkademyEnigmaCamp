@@ -1,6 +1,9 @@
 package com.enigma.entity;
 
+import org.hibernate.annotations.GenericGenerator;
+
 import javax.persistence.*;
+import java.util.Objects;
 
 @Entity
 @Table(name ="mst_store")
@@ -8,6 +11,8 @@ public class Store {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_mst_store")
     @SequenceGenerator(name = "seq_mst_store", sequenceName = "seq_mst_store", allocationSize = 1)
+/*    @GeneratedValue(generator = "system-uuid")
+    @GenericGenerator(name = "system-uuid", strategy = "uuid")*/
     private Integer id;
     private String storeName;
     private String address;
@@ -62,5 +67,22 @@ public class Store {
 
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Store store = (Store) o;
+        return Objects.equals(id, store.id) &&
+                Objects.equals(storeName, store.storeName) &&
+                Objects.equals(address, store.address) &&
+                Objects.equals(description, store.description) &&
+                Objects.equals(phoneNumber, store.phoneNumber);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, storeName, address, description, phoneNumber);
     }
 }

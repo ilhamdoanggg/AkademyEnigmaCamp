@@ -18,10 +18,17 @@ public class ProductController {
         return productServices.getProduct(id);
     }
 
+
     @GetMapping("/products")
-    public List<Product> getAll(Product product){
+    public List<Product> getAll(){
         return productServices.getAll();
     }
+/*
+    @GetMapping("/products?productName={keyword}&qty={qty}")
+    public List<Product> getAll(@RequestParam String keyword, String qty){
+        return productServices.getAll(keyword, qty);
+    }*/
+
     @PostMapping("/product")
     public void saveProduct(@RequestBody Product product){
         productServices.save(product);

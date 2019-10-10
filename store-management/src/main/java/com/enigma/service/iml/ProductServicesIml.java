@@ -1,6 +1,7 @@
 package com.enigma.service.iml;
 
 import com.enigma.entity.Product;
+import com.enigma.exceptions.InsufficientQuantityException;
 import com.enigma.repository.ProductRepository;
 import com.enigma.service.inter.ProductServices;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,6 +31,12 @@ public class ProductServicesIml implements ProductServices {
     }
 
     @Override
+    public List<Product> getAll(String keyword, String qty) {
+
+        return productRepository.findAllByProductNameAndQtyIsLessThanEqual(keyword, qty);
+    }
+
+    @Override
     public List<Product> getAll() {
         return productRepository.findAll();
     }
@@ -42,6 +49,9 @@ public class ProductServicesIml implements ProductServices {
     @Override
     public void debut(String id, Integer qty) {
         Product product=getProduct(id);
+        if (product.getQty()<=qty){
+            throw new InsufficientQuantityException();
+        }
         product.deductQuantity(qty);
         save(product);
     }
