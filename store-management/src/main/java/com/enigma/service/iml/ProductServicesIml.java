@@ -1,10 +1,11 @@
-package com.enigma.service;
+package com.enigma.service.iml;
 
 import com.enigma.entity.Product;
 import com.enigma.repository.ProductRepository;
 import com.enigma.service.inter.ProductServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -14,6 +15,9 @@ public class ProductServicesIml implements ProductServices {
 
     @Autowired
     ProductRepository productRepository;
+    /*
+    @Autowired
+    RestTemplate restTemplate;*/
 
     @Override
     public void save(Product product) {

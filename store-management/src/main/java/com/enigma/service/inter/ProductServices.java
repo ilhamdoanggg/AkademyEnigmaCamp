@@ -1,4 +1,4 @@
-package com.enigma.service;
+package com.enigma.service.inter;
 
 import com.enigma.entity.Product;
 
