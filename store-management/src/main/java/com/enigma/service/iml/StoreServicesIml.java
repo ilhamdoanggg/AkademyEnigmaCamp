@@ -2,6 +2,7 @@ package com.enigma.service;
 
 import com.enigma.entity.Store;
 import com.enigma.repository.StoreRepository;
+import com.enigma.service.inter.StoreServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
