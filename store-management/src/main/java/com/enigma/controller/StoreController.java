@@ -24,8 +24,8 @@ public class StoreController {
     }
 
     @PostMapping("/store")
-    public void saveStore(@RequestBody Store store) {
-        storeServices.save(store);
+    public Store saveStore(@RequestBody Store store) {
+        return storeServices.save(store);
     }
 }
 

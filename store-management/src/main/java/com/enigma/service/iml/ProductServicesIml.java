@@ -19,10 +19,9 @@ public class ProductServicesIml implements ProductServices {
     /*
     @Autowired
     RestTemplate restTemplate;*/
-
     @Override
-    public void save(Product product) {
-        productRepository.save(product);
+    public Product save(Product product) {
+       return productRepository.save(product);
     }
 
     @Override
@@ -60,6 +59,4 @@ public class ProductServicesIml implements ProductServices {
     public BigDecimal getProductPriceById(String id) {
         return getProduct(id).getPrice();
     }
-
-
 }

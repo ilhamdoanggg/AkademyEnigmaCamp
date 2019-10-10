@@ -31,7 +31,14 @@ public class StoreServicesIml implements StoreServices {
     }
 
     @Override
-    public void save(Store store) {
-        storeRepository.save(store);
+    public void deleteStore(Integer id) {
+        storeRepository.deleteById(id);
     }
+
+    @Override
+    public Store save(Store store) {
+        storeRepository.save(store);
+        return store;
+    }
+
 }

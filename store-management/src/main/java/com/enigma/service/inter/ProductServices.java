@@ -6,7 +6,7 @@ import java.math.BigDecimal;
 import java.util.List;
 
 public interface ProductServices {
-    public void save(Product product);
+    public Product save(Product product);
     public Product getProduct(String id);
     public List<Product> getAll(String keyword, String qty);
     public List<Product> getAll();

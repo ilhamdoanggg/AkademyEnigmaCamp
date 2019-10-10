@@ -85,4 +85,6 @@ public class Store {
     public int hashCode() {
         return Objects.hash(id, storeName, address, description, phoneNumber);
     }
+
+
 }
