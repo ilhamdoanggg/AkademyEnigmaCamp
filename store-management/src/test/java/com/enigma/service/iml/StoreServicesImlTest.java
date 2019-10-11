@@ -1,6 +1,5 @@
 package com.enigma.service.iml;
 
-import com.enigma.entity.Product;
 import com.enigma.entity.Store;
 import com.enigma.repository.StoreRepository;
 import org.junit.After;
@@ -10,13 +9,8 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
-import org.springframework.test.web.servlet.MvcResult;
-
-import javax.persistence.criteria.CriteriaBuilder;
 
 import static org.junit.Assert.*;
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.when;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -85,10 +79,11 @@ public class StoreServicesImlTest {
         //when(newStore.getId(any())).thenReturn();
         storeRepository.save(newStore);
         storeRepository.delete(newStore);
-        assertFalse(storeRepository.findById(newStore.getId()).isPresent());
+        assertFalse(storeRepository.findById(newStore.getId())
+                .isPresent());
     }
 
-    /*@Test
+   /* @Test
     public void storeSaveExceptionCreatedFailedWhenNameStoreIsEmty(){
         Store newStore= new Store("asasda",
                 "sdasda","asdads","asdad");
@@ -96,7 +91,7 @@ public class StoreServicesImlTest {
         storeRepository.save(newStore);
         //storeRepository.deleteAll();
         storeRepository.findById(newStore.getId()).get();
-        //assertThat(newStore.getStoreName()).isSameAs;
+        (newStore.getStoreName()).isSameAs;
     }*/
 
     @After

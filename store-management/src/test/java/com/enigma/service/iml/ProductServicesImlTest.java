@@ -66,6 +66,22 @@ public class ProductServicesImlTest {
         assertTrue(productRepository.findAll().isEmpty());
     }
 
+    @Test
+    public void paymentShouldBigDecimalDataType(){
+        BigDecimal bigDecimal = new BigDecimal(100);
+        Product product = new Product("Suriken",10, bigDecimal);
+        productRepository.save(product);
+        assertEquals(productRepository.findById(product.getId()).get().getPrice(),
+                new BigDecimal("100.00"));
+    }
+    @Test
+    public void paymentMustHaveMoneyToPayProductItems(){
+        BigDecimal bigDecimal = new BigDecimal(100);
+        Product product = new Product("Suriken",10, bigDecimal);
+        productRepository.save(product);
+    }
+
+
     /*
     * negative skenario
     * */
@@ -81,5 +97,4 @@ public class ProductServicesImlTest {
     public void deleteAll(){
         productRepository.deleteAll();
     }
-
 }
