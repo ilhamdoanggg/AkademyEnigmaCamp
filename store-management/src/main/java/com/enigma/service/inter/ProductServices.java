@@ -1,17 +1,23 @@
 package com.enigma.service.inter;
 
 import com.enigma.entity.Product;
+import com.enigma.entity.Store;
 
 import java.math.BigDecimal;
 import java.util.List;
 
 public interface ProductServices {
     public Product save(Product product);
+    //public Product save(Integer id, Product product);
     public Product getProduct(String id);
     public List<Product> getAll(String keyword, String qty);
     public List<Product> getAll();
+
+    //public List<Product> getProductByName();
     public void deleteProduct(String id);
-    public void debut(String id, Integer qty);
+    public void deduct(String id, Integer qty);
     public BigDecimal getProductPriceById(String id);
+    public Product saveProductByStore(Integer id, Product product);
+    public List<Product> getProductByStoreId(Integer id);
 
 }

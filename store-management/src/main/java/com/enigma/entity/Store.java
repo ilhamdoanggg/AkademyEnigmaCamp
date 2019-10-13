@@ -1,8 +1,11 @@
 package com.enigma.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -18,6 +21,9 @@ public class Store {
     private String address;
     private String description;
     private String phoneNumber;
+
+    @OneToMany(mappedBy = "store", cascade = CascadeType.PERSIST)
+    private List<Product> products = new ArrayList<>();
 
     public Store() {
     }
@@ -69,6 +75,14 @@ public class Store {
         this.phoneNumber = phoneNumber;
     }
 
+    public List<Product> getProducts() {
+        return products;
+    }
+
+    public void setProducts(List<Product> products) {
+        this.products = products;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -85,6 +99,4 @@ public class Store {
     public int hashCode() {
         return Objects.hash(id, storeName, address, description, phoneNumber);
     }
-
-
 }

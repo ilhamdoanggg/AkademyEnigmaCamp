@@ -1,10 +1,13 @@
 package com.enigma.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.math.BigInteger;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -17,6 +20,15 @@ public class Product {
     private String productName;
     private Integer qty;
     private BigDecimal price;
+
+    @ManyToOne()
+    @JoinColumn(name = "id_store")
+    @JsonIgnore
+    private Store store;
+
+    @Transient
+    @JsonIgnore
+    private String storeId;
 
     public Product(String productName, Integer qty, BigDecimal price) {
         this.productName = productName;
@@ -57,8 +69,25 @@ public class Product {
     public void setPrice(BigDecimal price) {
         this.price = price;
     }
+
     public void deductQuantity(Integer qty){
         this.qty= this.qty - qty;
+    }
+
+    public Store getStore() {
+        return store;
+    }
+
+    public void setStore(Store store) {
+        this.store = store;
+    }
+
+    public String getStoreId() {
+        return storeId;
+    }
+
+    public void setStoreId(String storeId) {
+        this.storeId = storeId;
     }
 
     @Override
@@ -69,7 +98,8 @@ public class Product {
         return Objects.equals(id, product.id) &&
                 Objects.equals(productName, product.productName) &&
                 Objects.equals(qty, product.qty)&&
-                Objects.equals(price, product.price);
+                price.compareTo(product.price)==0;
+        //Objects.equals(price, product.price);
     }
 
     @Override

@@ -56,7 +56,7 @@ public class PurchesedServicesIml implements PurchesedServices {
     * id product*/
     @Override
     public void purchasing(Purchesed purchesed) {
-        productServices.debut(purchesed.getProductId(), purchesed.getQty());
+        productServices.deduct(purchesed.getProductId(), purchesed.getQty());
         BigDecimal basePrice = productServices.getProductPriceById(purchesed.getProductId());
         purchesed.setPurchesPrice(basePrice);
         purchesedRepo.save(purchesed);

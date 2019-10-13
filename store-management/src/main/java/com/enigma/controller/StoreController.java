@@ -1,5 +1,6 @@
 package com.enigma.controller;
 
+import com.enigma.entity.Product;
 import com.enigma.entity.Store;
 import com.enigma.service.inter.StoreServices;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +28,7 @@ public class StoreController {
     public Store saveStore(@RequestBody Store store) {
         return storeServices.save(store);
     }
+
 }
 
 /*

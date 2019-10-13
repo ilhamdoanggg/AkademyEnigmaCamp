@@ -40,5 +40,4 @@ public class StoreServicesIml implements StoreServices {
         storeRepository.save(store);
         return store;
     }
-
 }
