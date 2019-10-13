@@ -1,4 +1,7 @@
 package com.enigma.repository;
 
-public class PurchasedRepo {
+import com.enigma.entity.Purchesed;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface PurchasedRepo extends JpaRepository<Purchesed, String > {
 }
