@@ -95,3 +95,28 @@ for (int i = 5; i<=10 ; i++) {
     System.out.println();
 }
 ```
+
+
+```package com.enigma;
+
+import java.math.BigDecimal;
+
+public class Main {
+
+    public static void main(String[] args) {
+        BigDecimal x = new BigDecimal(500);
+        kurangSatu(x);
+        System.out.println(x);
+    }
+
+    public static void kurangSatu(int x){
+        x=x-1;
+        System.out.println("ini aaaa" + x);
+    }
+
+    public static void kurangSatu(BigDecimal x){
+        x = x.subtract(new BigDecimal(1));
+        System.out.println("ini big" + x);
+    }
+}
+```
