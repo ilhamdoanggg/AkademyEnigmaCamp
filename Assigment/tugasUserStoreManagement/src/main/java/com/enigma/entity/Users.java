@@ -1,9 +1,12 @@
 package com.enigma.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -20,6 +23,9 @@ public class Users {
     private String password;
 //    private Email email;
     private Integer role;
+
+    @OneToMany(mappedBy = "userId", cascade = CascadeType.ALL)
+    List<Purchesed> purchesed = new ArrayList<>();
 
     public Users() {
     }
@@ -74,6 +80,15 @@ public class Users {
     public void setRole(Integer role) {
         this.role = role;
     }
+
+    public List<Purchesed> getPurchesed() {
+        return purchesed;
+    }
+
+    public void setPurchesed(List<Purchesed> purchesed) {
+        this.purchesed = purchesed;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

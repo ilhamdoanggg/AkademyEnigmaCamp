@@ -24,7 +24,6 @@ public class Store {
     * One Store many of products
     * */
     @OneToMany(mappedBy = "storeId", cascade = CascadeType.PERSIST)
-    @JsonIgnore
     List<Product> products = new ArrayList<>();
 
     public Store() {

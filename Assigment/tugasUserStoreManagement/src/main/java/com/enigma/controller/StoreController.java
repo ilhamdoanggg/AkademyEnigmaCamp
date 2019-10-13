@@ -20,7 +20,7 @@ public class StoreController {
     public List<Store> getAllStoreData(Store store){
         return storeServices.getAllStore(store);
     }
-    @PostMapping("stores")
+    @PostMapping("store")
     public Store saveNewStore(@RequestBody Store store){
         return storeServices.save(store);
     }

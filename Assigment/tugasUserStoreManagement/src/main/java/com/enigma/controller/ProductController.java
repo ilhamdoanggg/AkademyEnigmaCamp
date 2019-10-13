@@ -28,4 +28,12 @@ public class ProductController {
     public void deleteProductById(@PathVariable String id){
         productServices.deleteProduct(id);
     }
+    @GetMapping("store/{id}/product")
+    public List<Product> getstorrebyidandProduct(@PathVariable String id){
+        return productServices.getProductByStoreId(id);
+    }
+    @PostMapping("store/{id}/products")
+    public Product getProductByStoreId(@PathVariable String id,@RequestBody Product product){
+        return productServices.saveProductByStore(id, product);
+    }
 }

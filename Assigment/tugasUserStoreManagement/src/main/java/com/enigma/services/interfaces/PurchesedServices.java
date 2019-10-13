@@ -9,4 +9,5 @@ public interface PurchesedServices {
     Purchesed getPurchesed(String id);
     List<Purchesed> getAllPurchesed(Purchesed purchesed);
     void deletePurchesedById(String id);
+    public void purchasing(Purchesed purchesed);
 }

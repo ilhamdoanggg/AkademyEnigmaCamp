@@ -1,5 +1,6 @@
 package com.enigma.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
@@ -22,7 +23,9 @@ public class Product {
     * */
     @ManyToOne()
     @JoinColumn(name = "store_id")
+    @JsonIgnore
     private Store storeId;
+
     @Transient
     private Integer pasangIdStore;
 
@@ -33,7 +36,6 @@ public class Product {
         this.qty = qty;
         this.price = price;
     }
-
     public String getId() {
         return id;
     }
@@ -70,7 +72,9 @@ public class Product {
     public void setPasangIdStore(Integer pasangIdStore) {
         this.pasangIdStore = pasangIdStore;
     }
-
+    public void deductQuantity(Integer qty){
+        this.qty= this.qty - qty;
+    }
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -83,7 +87,6 @@ public class Product {
                 Objects.equals(storeId, product.storeId) &&
                 price.compareTo(product.price)==0;
     }
-
     @Override
     public int hashCode() {
         return Objects.hash(id, productName, qty, price, storeId, pasangIdStore);

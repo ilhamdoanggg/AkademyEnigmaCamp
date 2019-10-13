@@ -1,5 +1,6 @@
 package com.enigma.services.implement;
 
+import com.enigma.entity.Product;
 import com.enigma.entity.Store;
 import com.enigma.repository.StoreRepo;
 import com.enigma.services.interfaces.StoreServices;
@@ -15,6 +16,9 @@ public class StoreService implements StoreServices {
 
     @Override
     public Store save(Store store) {
+        for (Product product: store.getProducts()) {
+            product.setStoreId(store);
+        }
         return storeRepo.save(store);
     }
     @Override

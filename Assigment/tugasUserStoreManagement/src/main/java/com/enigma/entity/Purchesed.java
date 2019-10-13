@@ -1,5 +1,6 @@
 package com.enigma.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
@@ -16,6 +17,11 @@ public class Purchesed {
     private String productId;
     private Integer qty;
     private BigDecimal totalPrice;
+
+    @ManyToOne()
+    @JoinColumn(name = "userId")
+    @JsonIgnore
+    private Users userId;
 
     public Purchesed() {
     }
@@ -50,6 +56,18 @@ public class Purchesed {
     public void setTotalPrice(BigDecimal totalPrice) {
         this.totalPrice = totalPrice;
     }
+    public void setPurchesPrice(BigDecimal productPrice){
+        this.totalPrice = productPrice.multiply(new BigDecimal(this.qty));
+    }
+
+    public Users getUsers() {
+        return userId;
+    }
+
+    public void setUsers(Users users) {
+        this.userId = users;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
