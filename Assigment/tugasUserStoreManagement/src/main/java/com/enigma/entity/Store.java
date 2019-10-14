@@ -23,6 +23,7 @@ public class Store {
     /*
     * One Store many of products
     * */
+
     @OneToMany(mappedBy = "storeId", cascade = CascadeType.PERSIST)
     List<Product> products = new ArrayList<>();
 

@@ -5,6 +5,8 @@ import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -22,9 +24,13 @@ public class Product {
     * One product From Store
     * */
     @ManyToOne()
-    @JoinColumn(name = "store_id")
+    @JoinColumn(name = "storeId")
     @JsonIgnore
     private Store storeId;
+
+    @OneToMany(mappedBy = "product", cascade = CascadeType.PERSIST)
+    @JsonIgnore
+    private List<Purchesed> purchasedList = new ArrayList<>();
 
     @Transient
     private Integer pasangIdStore;
