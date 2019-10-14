@@ -30,7 +30,7 @@ public class Product {
 
     @OneToMany(mappedBy = "product", cascade = CascadeType.PERSIST)
     @JsonIgnore
-    private List<Purchesed> purchasedList = new ArrayList<>();
+    private List<PurchesedDetail> purchasedList;
 
     @Transient
     private Integer pasangIdStore;

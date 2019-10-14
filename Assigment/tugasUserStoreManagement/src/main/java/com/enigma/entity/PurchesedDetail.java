@@ -15,6 +15,9 @@ public class PurchesedDetail {
     @GenericGenerator(name = "system-uuid", strategy = "uuid")
     private String id;
 
+    @Transient
+    private String purchesedId;
+
     @ManyToOne
     @JoinColumn(name = "purchesedId")
     @JsonIgnore
@@ -25,14 +28,21 @@ public class PurchesedDetail {
     @JsonIgnore
     private Product product;
     private Integer qty;
-    private BigDecimal totalPriceSub;
+    private BigDecimal subTotalPrice;
 
     @Transient
     private String productId;
-    @Transient
-    private String purchesedId;
 
     public PurchesedDetail() {
+    }
+
+    public PurchesedDetail(Purchesed purchesed, Product product, Integer qty, BigDecimal subTotalPrice, String productId, String purchesedId) {
+        this.purchesed = purchesed;
+        this.product = product;
+        this.qty = qty;
+        this.subTotalPrice = subTotalPrice;
+        this.productId = productId;
+        this.purchesedId = purchesedId;
     }
 
     public String getId() {
@@ -67,12 +77,12 @@ public class PurchesedDetail {
         this.qty = qty;
     }
 
-    public BigDecimal getTotalPriceSub() {
-        return totalPriceSub;
+    public BigDecimal getSubTotalPrice() {
+        return subTotalPrice;
     }
 
-    public void setTotalPriceSub(BigDecimal totalPriceSub) {
-        this.totalPriceSub = totalPriceSub;
+    public void setSubTotalPrice(BigDecimal subTotalPrice) {
+        this.subTotalPrice = subTotalPrice;
     }
 
     public String getProductId() {
@@ -90,4 +100,9 @@ public class PurchesedDetail {
     public void setPurchesedId(String purchesedId) {
         this.purchesedId = purchesedId;
     }
+
+    public void setPurchasePrice(BigDecimal price){
+        this.subTotalPrice = price.multiply(new BigDecimal(this.qty));
+    }
+
 }

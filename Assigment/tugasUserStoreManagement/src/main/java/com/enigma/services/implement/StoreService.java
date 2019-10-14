@@ -31,6 +31,12 @@ public class StoreService implements StoreServices {
         }
         return storeRepo.findById(id).get();
     }
+
+    @Override
+    public List<Store> getAll(Store store) {
+        return storeRepo.findAll();
+    }
+
     @Override
     public Page<Store> getAllStore(Pageable pageable, Example<Store> exampleMatcher) {
         return storeRepo.findAll(exampleMatcher, pageable);
@@ -47,7 +53,4 @@ public class StoreService implements StoreServices {
     public void deleteStoreById(String id) {
         storeRepo.deleteById(id);
     }
-
-
-
 }

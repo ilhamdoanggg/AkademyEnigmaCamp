@@ -33,6 +33,12 @@ public class ProductService implements ProductServices {
         }
         return productRepo.findById(id).get();
     }
+
+    @Override
+    public List<Product> getAllProduct(Product product) {
+        return productRepo.findAll();
+    }
+
     @Override
     public void deleteProduct(String id) {
         productRepo.deleteById(id);
@@ -59,15 +65,13 @@ public class ProductService implements ProductServices {
         product.setStoreId(store);
         return productRepo.save(product);
     }
-
     @Override
     public List<Product> getProductByStoreId(String id) {
         Store store = storeServices.getStore(id);
         return store.getProducts();
     }
-
-    @Override
-    public Page<Product> getAllPage(Pageable pageable) {
-        return productRepo.findAll(pageable);
-    }
+//    @Override
+//    public Page<Product> getAllPage(Pageable pageable) {
+//        return productRepo.findAll(pageable);
+//    }
 }

@@ -27,16 +27,13 @@ public class Purchesed {
     private String userId;
 
     @OneToMany(mappedBy = "purchesed", cascade = CascadeType.PERSIST)
-    List<PurchesedDetail> purchesedDetailList = new ArrayList<>();
+    List<PurchesedDetail> purchesedDetailList;
 
     public Purchesed() {
     }
 
     public Purchesed(BigDecimal totalPrice, Users user, String userId, List<PurchesedDetail> purchesedDetailList) {
         this.totalPrice = totalPrice;
-        this.user = user;
-        this.userId = userId;
-        this.purchesedDetailList = purchesedDetailList;
     }
 
     public String getId() {
@@ -78,4 +75,9 @@ public class Purchesed {
     public void setPurchesedDetailList(List<PurchesedDetail> purchesedDetailList) {
         this.purchesedDetailList = purchesedDetailList;
     }
+
+    public BigDecimal setTotalPricePurchased(BigDecimal total){
+        return this.totalPrice= this.totalPrice.add(total);
+    }
+
 }

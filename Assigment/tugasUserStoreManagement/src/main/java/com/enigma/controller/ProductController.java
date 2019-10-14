@@ -3,9 +3,7 @@ package com.enigma.controller;
 import com.enigma.entity.Product;
 import com.enigma.services.interfaces.ProductServices;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
+
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -19,10 +17,7 @@ public class ProductController {
     public Product getProductById(@PathVariable String id){
         return productServices.getProductId(id);
     }
-//    @GetMapping("products")
-//    public List<Product> getAllProducts(Product product){
-//        return productServices.getAllProduct(product);
-//    }
+
     @PostMapping("product")
     public Product saveNewProductById(@RequestBody Product product){
         return productServices.save(product);
@@ -40,9 +35,10 @@ public class ProductController {
         return productServices.saveProductByStore(id, product);
     }
 
+/*
     @GetMapping("products")
     public Page<Product> getALlPage(@RequestParam Integer size, @RequestParam Integer page){
         Pageable pageable = PageRequest.of(page, size);
         return productServices.getAllPage(pageable);
-    }
+    }*/
 }

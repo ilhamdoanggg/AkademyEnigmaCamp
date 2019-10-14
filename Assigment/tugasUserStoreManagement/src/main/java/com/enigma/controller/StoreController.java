@@ -20,7 +20,10 @@ public class StoreController {
     public Store getStoreId(@PathVariable String id){
         return storeServices.getStore(id);
     }
-
+    @GetMapping("storeslist")
+    public List<Store>getAll(@RequestBody Store store){
+        return storeServices.getAll(store);
+    }
     @GetMapping("stores")
     public Page<Store> getAllStoreData(@RequestParam Integer size, @RequestParam Integer page, @RequestBody Store search){
         ExampleMatcher exampleMatcher= ExampleMatcher.matchingAny()

@@ -10,6 +10,7 @@ import java.util.List;
 public interface StoreServices {
     Store save(Store store);
     Store getStore(String id);
+    List<Store>getAll(Store store);
     Page<Store> getAllStore(Pageable pageable, Example<Store> exampleMatcher);
     void deleteStoreById(String id);
 //    Page<Store> searchAndPage
