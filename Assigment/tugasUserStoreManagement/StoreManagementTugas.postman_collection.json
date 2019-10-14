@@ -1,0 +1,259 @@
+{
+	"info": {
+		"_postman_id": "2b3403a2-367f-4de3-911e-882a412d2bfc",
+		"name": "Store Management Tugas",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Get User",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "localhost:9090/user/ff8081816dc68146016dc68205b70001"
+					},
+					"response": []
+				},
+				{
+					"name": "delete id user",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "localhost:9090/user/ff8081816dc4b21f016dc4b2539c0000"
+					},
+					"response": []
+				},
+				{
+					"name": "Post User",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"firstName\": \"Harapan\",\n    \"lastName\": \"Akhirat\",\n    \"email\": \"akhir@adad.com\",\n    \"username\": \"asasdasd\",\n    \"password\": \"asaasdad\",\n    \"updateAt\": \"2019-10-09\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:9090/user"
+					},
+					"response": []
+				},
+				{
+					"name": "GetAll User",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "localhost:9090/users"
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Product",
+			"item": [
+				{
+					"name": "Post product",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"productName\": \"Bebek goreng\",\n    \"qty\": 10,\n    \"price\": 300000\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:9090/product"
+					},
+					"response": []
+				},
+				{
+					"name": "Post product subresorces",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"productName\": \"Daging Panggang\",\n    \"qty\": 10,\n    \"price\": 300000\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:9090/product"
+					},
+					"response": []
+				},
+				{
+					"name": "Get product",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "localhost:9090/products/"
+					},
+					"response": []
+				},
+				{
+					"name": "Get product Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "localhost:9090/product/ff8081816dc59189016dc598cdbf0003"
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Store",
+			"item": [
+				{
+					"name": "get Store",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "localhost:9090/store/ff8081816dc68146016dc6849fc00003"
+					},
+					"response": []
+				},
+				{
+					"name": "get Store Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "localhost:9090/store/ff8081816dc68146016dc6849fc00003"
+					},
+					"response": []
+				},
+				{
+					"name": "get All Store list",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:9090/storeslist"
+					},
+					"response": []
+				},
+				{
+					"name": "Post Store",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"storeName\": \"Stor Asli?\",\n    \"address\": \"Jalan ke mas??? ayo\",\n    \"description\": \"Menjual anak ayam\",\n    \"phoneNumber\": \"0984334709773\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:9090/store"
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "purchesed",
+			"item": [
+				{
+					"name": "get All Purchesed",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "localhost:9090/purcheseds"
+					},
+					"response": []
+				},
+				{
+					"name": "Post Purchesed",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"productId\": \"ff8081816dc68146016dc685df2e0005\",\n    \"qty\": 2\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:9090/purchesed/"
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
