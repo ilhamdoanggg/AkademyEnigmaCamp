@@ -28,4 +28,8 @@ public class PurchesedController {
     public void deletePurchesedById(@PathVariable String id){
         purchesedServices.deletePurchesedById(id);
     }
+    @PostMapping("user/{id}/purchesed")
+    public Purchesed postUserByStoroId(@PathVariable String id, @RequestBody Purchesed purchesed){
+        return purchesedServices.saveUser(id, purchesed);
+    }
 }

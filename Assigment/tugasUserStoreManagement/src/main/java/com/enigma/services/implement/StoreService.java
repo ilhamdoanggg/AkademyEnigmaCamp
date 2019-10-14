@@ -5,6 +5,9 @@ import com.enigma.entity.Store;
 import com.enigma.repository.StoreRepo;
 import com.enigma.services.interfaces.StoreServices;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Example;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -29,11 +32,22 @@ public class StoreService implements StoreServices {
         return storeRepo.findById(id).get();
     }
     @Override
+    public Page<Store> getAllStore(Pageable pageable, Example<Store> exampleMatcher) {
+        return storeRepo.findAll(exampleMatcher, pageable);
+    }
+    /*    @Override
+    public Page<Store> getAllStore(Pageable pageable, String keyword) {
+        return storeRepo.findAllByStoreNameContainsOrAddressContainsOrDescriptionContainsOrPhoneNumberContains(keyword, keyword, keyword, keyword, pageable);
+    }*/
+    /*
     public List<Store> getAllStore(Store store) {
         return storeRepo.findAll();
-    }
+    }*/
     @Override
     public void deleteStoreById(String id) {
         storeRepo.deleteById(id);
     }
+
+
+
 }

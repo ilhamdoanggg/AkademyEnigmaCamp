@@ -6,6 +6,8 @@ import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -16,77 +18,41 @@ public class Purchesed {
     @GenericGenerator(name = "system-uuid", strategy = "uuid")
     private String id;
 
-    @ManyToOne
-    @JoinColumn(name = "productId")
-    @JsonIgnore
-    private Product product;
-
-    private Integer qty;
-    private BigDecimal totalPrice;
-
     @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "userId")
     private Users user;
-
+    private BigDecimal totalPrice;
     @Transient
     private String userId;
 
-    @Transient
-    private String productId;
-
+    @OneToMany(mappedBy = "purchesed", cascade = CascadeType.PERSIST)
+    List<PurchesedDetail> purchesedDetailList = new ArrayList<>();
 
     public Purchesed() {
     }
 
-    public Purchesed(Integer qty, BigDecimal totalPrice) {
-        this.qty = qty;
+    public Purchesed(BigDecimal totalPrice, Users user, String userId, List<PurchesedDetail> purchesedDetailList) {
         this.totalPrice = totalPrice;
+        this.user = user;
+        this.userId = userId;
+        this.purchesedDetailList = purchesedDetailList;
     }
+
     public String getId() {
         return id;
     }
+
     public void setId(String id) {
         this.id = id;
     }
-    public Integer getQty() {
-        return qty;
-    }
-    public void setQty(Integer qty) {
-        this.qty = qty;
-    }
+
     public BigDecimal getTotalPrice() {
         return totalPrice;
     }
+
     public void setTotalPrice(BigDecimal totalPrice) {
         this.totalPrice = totalPrice;
-    }
-    public void setPurchesPrice(BigDecimal productPrice){
-        this.totalPrice = productPrice.multiply(new BigDecimal(this.qty));
-    }
-
-    public Product getProduct() {
-        return product;
-    }
-
-    public void setProduct(Product product) {
-        this.product = product;
-    }
-
-    public Users getUserId() {
-        return user;
-    }
-
-    public void setUserId(Users userId) {
-        this.user = userId;
-    }
-
-    public Users getUsers() {
-        return user;
-    }
-
-    public void setUsers(Users users) {
-        this.user = users;
     }
 
     public Users getUser() {
@@ -97,34 +63,19 @@ public class Purchesed {
         this.user = user;
     }
 
+    public String getUserId() {
+        return userId;
+    }
+
     public void setUserId(String userId) {
         this.userId = userId;
     }
 
-    public String getProductId() {
-        return productId;
+    public List<PurchesedDetail> getPurchesedDetailList() {
+        return purchesedDetailList;
     }
 
-    public void setProductId(String productId) {
-        this.productId = productId;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Purchesed purchesed = (Purchesed) o;
-        return Objects.equals(id, purchesed.id) &&
-                Objects.equals(product, purchesed.product) &&
-                Objects.equals(qty, purchesed.qty) &&
-                totalPrice.compareTo(purchesed.totalPrice)==0 &&
-                Objects.equals(user, purchesed.user) &&
-                Objects.equals(userId, purchesed.userId) &&
-                Objects.equals(productId, purchesed.productId);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, product, qty, totalPrice, user, userId, productId);
+    public void setPurchesedDetailList(List<PurchesedDetail> purchesedDetailList) {
+        this.purchesedDetailList = purchesedDetailList;
     }
 }

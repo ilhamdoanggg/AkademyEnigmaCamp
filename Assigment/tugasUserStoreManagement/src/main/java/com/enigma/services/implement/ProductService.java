@@ -8,6 +8,8 @@ import com.enigma.repository.ProductRepo;
 import com.enigma.services.interfaces.ProductServices;
 import com.enigma.services.interfaces.StoreServices;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
@@ -30,10 +32,6 @@ public class ProductService implements ProductServices {
             return new Product();
         }
         return productRepo.findById(id).get();
-    }
-    @Override
-    public List<Product> getAllProduct(Product product) {
-        return productRepo.findAll();
     }
     @Override
     public void deleteProduct(String id) {
@@ -66,5 +64,10 @@ public class ProductService implements ProductServices {
     public List<Product> getProductByStoreId(String id) {
         Store store = storeServices.getStore(id);
         return store.getProducts();
+    }
+
+    @Override
+    public Page<Product> getAllPage(Pageable pageable) {
+        return productRepo.findAll(pageable);
     }
 }
