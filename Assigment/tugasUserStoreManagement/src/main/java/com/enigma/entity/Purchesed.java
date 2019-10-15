@@ -17,11 +17,11 @@ public class Purchesed {
     @GenericGenerator(name = "system-uuid", strategy = "uuid")
     private String id;
 
-    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "userId")
     private Users user;
     private BigDecimal totalPrice;
+
     @Transient
     private String userId;
 
@@ -58,9 +58,15 @@ public class Purchesed {
     public void setUser(Users user) {
         this.user = user;
     }
-
+    /*
+    * getter setter user trasnsient
+    * */
     public String getUserId() {
+        if (userId ==null){
+            return user.getFirstName() +" "+ user.getLastName();
+        }
         return userId;
+        //return user.getFirstName() +" "+ user.getLastName();
     }
 
     public void setUserId(String userId) {

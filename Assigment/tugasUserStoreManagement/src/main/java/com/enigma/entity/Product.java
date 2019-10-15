@@ -28,9 +28,8 @@ public class Product {
     @JsonIgnore
     private Store storeId;
 
-//    @OneToMany(mappedBy = "product", cascade = CascadeType.PERSIST)
-//    @JsonIgnore
-//    private List<PurchesedDetail> purchasedList;
+    @OneToMany(mappedBy = "product", cascade = CascadeType.PERSIST)
+    private List<PurchesedDetail> purchasedList;
 
     @Transient
     private Integer pasangIdStore;

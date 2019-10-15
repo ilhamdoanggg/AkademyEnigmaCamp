@@ -17,6 +17,7 @@ public class PurchesedDetail {
     private BigDecimal subTotalPrice;
     @Transient
     private String purchesedId;
+
     @ManyToOne
     @JoinColumn(name = "purchesedId")
     @JsonIgnore
@@ -24,6 +25,7 @@ public class PurchesedDetail {
 
     @Transient
     private String productId;
+
     @ManyToOne
     @JoinColumn(name = "productId")
     @JsonIgnore
@@ -82,6 +84,9 @@ public class PurchesedDetail {
     }
 
     public String getProductId() {
+        if (productId==null){
+            return product.getId()/*+ product.getProductName()*/;
+        }
         return productId;
     }
 

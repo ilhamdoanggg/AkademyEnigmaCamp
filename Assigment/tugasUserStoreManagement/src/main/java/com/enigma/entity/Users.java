@@ -1,5 +1,6 @@
 package com.enigma.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.GenericGenerator;
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -25,8 +26,8 @@ public class Users {
     private Date updateAt;
 //    private Email email;
 
-
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    @JsonIgnore
     List<Purchesed> purchesedList = new ArrayList<>();
 
     public Users() {
