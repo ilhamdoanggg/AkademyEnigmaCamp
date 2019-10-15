@@ -2,10 +2,8 @@ package com.enigma.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.GenericGenerator;
-
 import javax.persistence.*;
 import java.math.BigDecimal;
-import java.util.Objects;
 
 @Entity
 @Table(name = "trx_purchesed_detail")
@@ -15,23 +13,21 @@ public class PurchesedDetail {
     @GenericGenerator(name = "system-uuid", strategy = "uuid")
     private String id;
 
+    private Integer qty;
+    private BigDecimal subTotalPrice;
     @Transient
     private String purchesedId;
-
     @ManyToOne
     @JoinColumn(name = "purchesedId")
     @JsonIgnore
     private Purchesed purchesed;
 
+    @Transient
+    private String productId;
     @ManyToOne
     @JoinColumn(name = "productId")
     @JsonIgnore
     private Product product;
-    private Integer qty;
-    private BigDecimal subTotalPrice;
-
-    @Transient
-    private String productId;
 
     public PurchesedDetail() {
     }

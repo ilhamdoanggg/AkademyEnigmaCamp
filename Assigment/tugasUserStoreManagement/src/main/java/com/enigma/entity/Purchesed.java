@@ -1,6 +1,5 @@
 package com.enigma.entity;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.GenericGenerator;
 
@@ -27,12 +26,12 @@ public class Purchesed {
     private String userId;
 
     @OneToMany(mappedBy = "purchesed", cascade = CascadeType.PERSIST)
-    List<PurchesedDetail> purchesedDetailList;
+    List<PurchesedDetail> purchesedDetail = new ArrayList<>();
 
     public Purchesed() {
     }
 
-    public Purchesed(BigDecimal totalPrice, Users user, String userId, List<PurchesedDetail> purchesedDetailList) {
+    public Purchesed(BigDecimal totalPrice, Users user, List<PurchesedDetail> purchesedDetail) {
         this.totalPrice = totalPrice;
     }
 
@@ -68,16 +67,32 @@ public class Purchesed {
         this.userId = userId;
     }
 
-    public List<PurchesedDetail> getPurchesedDetailList() {
-        return purchesedDetailList;
+    public List<PurchesedDetail> getPurchesedDetail() {
+        return purchesedDetail;
     }
 
-    public void setPurchesedDetailList(List<PurchesedDetail> purchesedDetailList) {
-        this.purchesedDetailList = purchesedDetailList;
+    public void setPurchesedDetail(List<PurchesedDetail> purchesedDetail) {
+        this.purchesedDetail = purchesedDetail;
     }
 
     public BigDecimal setTotalPricePurchased(BigDecimal total){
         return this.totalPrice= this.totalPrice.add(total);
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Purchesed purchesed = (Purchesed) o;
+        return Objects.equals(id, purchesed.id) &&
+                Objects.equals(user, purchesed.user) &&
+                Objects.equals(totalPrice, purchesed.totalPrice) &&
+             //   Objects.equals(userId, purchesed.userId) &&
+                Objects.equals(purchesedDetail, purchesed.purchesedDetail);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, user, totalPrice, purchesedDetail);
+    }
 }

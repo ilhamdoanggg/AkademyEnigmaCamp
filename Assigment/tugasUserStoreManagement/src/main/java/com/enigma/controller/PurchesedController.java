@@ -23,7 +23,7 @@ public class PurchesedController {
     }
     @PostMapping("purchased-save")
     public Purchesed purchasing(@RequestBody Purchesed purchased){
+        //purchased.getUserId();
         return purchesedServices.purchasingDetail(purchased);
     }
-
 }
