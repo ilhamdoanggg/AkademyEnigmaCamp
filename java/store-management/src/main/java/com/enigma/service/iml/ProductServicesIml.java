@@ -7,6 +7,8 @@ import com.enigma.repository.ProductRepository;
 import com.enigma.service.inter.ProductServices;
 import com.enigma.service.inter.StoreServices;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
@@ -25,7 +27,8 @@ public class ProductServicesIml implements ProductServices {
     RestTemplate restTemplate;*/
     @Override
     public Product save(Product product) {
-       return productRepository.save(product);
+
+        return productRepository.save(product);
     }
 
 
@@ -40,6 +43,11 @@ public class ProductServicesIml implements ProductServices {
     @Override
     public List<Product> getAll() {
         return productRepository.findAll();
+    }
+
+    @Override
+    public Page<Product> getAllPage(Pageable pageable) {
+        return productRepository.findAll(pageable);
     }
 
     @Override

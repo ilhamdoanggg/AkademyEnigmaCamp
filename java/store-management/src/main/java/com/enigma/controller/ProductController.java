@@ -4,6 +4,9 @@ import com.enigma.entity.Product;
 import com.enigma.entity.Store;
 import com.enigma.service.inter.ProductServices;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -57,6 +60,12 @@ public class ProductController {
     @DeleteMapping("product/{id}")
     public void deleteProduct(@PathVariable String id){
         productServices.deleteProduct(id);
+    }
+
+    @GetMapping("products")
+    public Page<Product> getALlPage(@RequestParam Integer size, @RequestParam Integer page){
+        Pageable pageable = PageRequest.of(page, size);
+        return productServices.getAllPage(pageable);
     }
 
 }
