@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Store</title>
+</head>
+<body>
+<div>
+    <h1>Getting Started With Fetch API</h1>
+    <button onclick="fetchUserData();">Fetch User Data</button>
+    <button onclick="fetchStoreData();">Fetch Store Data</button>
+    <pre class="responseUser"></pre>
+    <pre class="response"></pre>
+</div>
+
+<script>
+    //const url = 'http://localhost:9090';
+    // function clickIni() {
+    //     //fetchUserData();
+    //     document.getElementById('fetchStoreDataBtn').addEventListener('click', fetchUserData);
+    // }
+    // function fetchUserData(){
+    //     var request = new Request('http://localhost:9090/users');
+    //     fetch(request).then(function(response) {
+    //         return response.json();
+    //     }).then(function(j) {
+    //         function clickIni() {
+    //             //fetchUserData();
+    //             document.getElementById('#fetchStoreDataBtn').innerHTML=j;
+    //         }
+    //         console.log(JSON.stringify(j));
+    //     }).catch(function(error) {
+    //         console.log('Request failed', error)
+    //     });
+    // }
+    fetch('http://localhost:9090/users').then(respone => respone.json())
+    .then((dataUser) => {
+        console.log(dataUser);
+        fetchUserData = () => {
+            document.querySelector('.responseUser').innerHTML = JSON.stringify(dataUser)
+        }
+    })
+    fetch('http://localhost:9090/storeslist').then(respone => respone.json())
+        .then((dataStore) => {
+            console.log(dataStore);
+            fetchStoreData= () => {
+                document.querySelector('.response').innerHTML = JSON.stringify(dataStore)
+            }
+        })
+</script>
+</body>
+</html>
