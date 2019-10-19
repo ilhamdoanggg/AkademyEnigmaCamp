@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+//@CrossOrigin(maxAge = 3600)
+
 @RestController
 public class UserController {
     @Autowired
@@ -16,6 +18,9 @@ public class UserController {
     public Users getUserId(@PathVariable String id){
         return userServices.getUser(id);
     }
+
+    /*@CrossOrigin(origins = "http://localhost:9090", allowCredentials = "false")*/
+    @CrossOrigin
     @GetMapping("users")
     public List<Users> getAllUsers(Users users){
         return userServices.getAllUser(users);

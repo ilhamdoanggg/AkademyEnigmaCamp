@@ -20,8 +20,11 @@ public class StoreController {
     public Store getStoreId(@PathVariable String id){
         return storeServices.getStore(id);
     }
+
+//    @CrossOrigin(origins = "http://localhost:9090")
+    @CrossOrigin
     @GetMapping("storeslist")
-    public List<Store>getAll(@RequestBody Store store){
+    public List<Store>getAll(Store store){
         return storeServices.getAll(store);
     }
     @GetMapping("stores")
