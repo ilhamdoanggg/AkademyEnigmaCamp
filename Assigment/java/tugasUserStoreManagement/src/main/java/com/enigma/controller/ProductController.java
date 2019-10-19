@@ -18,6 +18,11 @@ public class ProductController {
         return productServices.getProductId(id);
     }
 
+    @CrossOrigin
+    @GetMapping("products")
+    public List<Product> getAllProducts(Product product){
+        return productServices.getAllProduct(product);
+    }
     @PostMapping("product")
     public Product saveNewProductById(@RequestBody Product product){
         return productServices.save(product);
