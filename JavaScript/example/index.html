@@ -2,18 +2,78 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <script src="Fecth.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<!--    <script src="Fecth.js"></script>-->
     <title>Store</title>
 </head>
-<body>
+<body onLoad="buildHtmlTable('#excelDataTable')">
 <div>
     <h1>Getting Started With Fetch API</h1>
     <button onclick="fetchUserData();">Fetch User Data</button>
-    <button onclick="fetchStoreData();">Fetch Store Data</button>
-    <button onclick="fetchProductData();">Fetch Product Data</button>
+<!--    <button onclick="fetchStoreData();">Fetch Store Data</button>-->
+<!--    <button onclick="fetchProductData();">Fetch Product Data</button>-->
     <pre class="responseUser"></pre>
+    <table id="excelDataTable" border="1">
+    </table>
     <pre class="responseStore"></pre>
     <pre class="responseProduct"></pre>
 </div>
 </body>
+<script>
+    fetch('http://localhost:9090/users').then(respone => respone.json())
+        .then((dataUser) => {
+            console.log(dataUser);
+            fetchUserData = () => {
+                document.querySelector('.responseUser').innerHTML = JSON.stringify(dataUser)
+            }
+        })
+/*
+
+            var myUserData = [fetchUserData()];
+            function htmlTable(selector){
+                var columns = addAllColumnHeaders(myUserData, selector);
+                for (var i = 0; i <myUserData.length ; i++) {
+                    var row$ = $('<tr/>');
+                    for (var j = 0; j <columns.length ; j++) {
+                        var cellValues =myUserData[i][columns[j]];
+                        if (cellValues==null)cellValues="";
+                        row$.append($('<td/>').html(cellValues));
+                    }
+                    $(selector).append(row$);
+                }
+            }
+
+            function addAllColumnHeaders(myUserData, selector) {
+                var columnSet = [];
+                var headerTr$ = $('<tr/>');
+                for (var i = 0; i < myUserData.length; i++) {
+                    var rowHash = myUserData[i];
+                    for (var key in rowHash) {
+                        if ($.inArray(key, columnSet) == -1) {
+                            columnSet.push(key);
+                            headerTr$.append($('<th/>').html(key));
+                        }
+                    }
+                }
+                $(selector).append(headerTr$);
+                return columnSet;
+            }
+*/
+
+    fetch('http://localhost:9090/storeslist').then(respone => respone.json())
+        .then((dataStore) => {
+            console.log(dataStore);
+            fetchStoreData= () => {
+                document.querySelector('.responseStore').innerHTML = JSON.stringify(dataStore)
+            }
+        })
+    fetch('http://localhost:9090/products').then(respone => respone.json())
+        .then((dataProducts) => {
+            console.log(dataProducts);
+            fetchProductData = () => {
+                document.querySelector('.responseProduct').innerHTML = JSON.stringify(dataProducts)
+            }
+        })
+
+</script>
 </html>
