@@ -6,36 +6,40 @@
 <!--    <script src="Fecth.js"></script>-->
     <title>Store</title>
 </head>
-<body onLoad="buildHtmlTable('#excelDataTable')">
+<body >
 <div>
     <h1>Getting Started With Fetch API</h1>
     <button onclick="fetchUserData();">Fetch User Data</button>
 <!--    <button onclick="fetchStoreData();">Fetch Store Data</button>-->
 <!--    <button onclick="fetchProductData();">Fetch Product Data</button>-->
-    <pre class="responseUser"></pre>
-    <table id="excelDataTable" border="1">
-    </table>
     <pre class="responseStore"></pre>
+    <div onLoad="htmlTable('#excelDataTable')">
+        <div class="responseUser">
+            <table id="excelDataTable" border="1">
+            </table>
+        </div>
+    </div>
     <pre class="responseProduct"></pre>
 </div>
 </body>
 <script>
-    fetch('http://localhost:9090/users').then(respone => respone.json())
+   // var User = document.querySelector('.responseUser').innerHTML = nampungFunction()
+    function nampungFunction(){
+        fetch('http://localhost:9090/users').then(respone => respone.json())
         .then((dataUser) => {
             console.log(dataUser);
             fetchUserData = () => {
                 document.querySelector('.responseUser').innerHTML = JSON.stringify(dataUser)
             }
         })
-/*
-
-            var myUserData = [fetchUserData()];
+    }
+   var myUserData = nampungFunction()
             function htmlTable(selector){
                 var columns = addAllColumnHeaders(myUserData, selector);
-                for (var i = 0; i <myUserData.length ; i++) {
+                for (var i = 0; i < myUserData.length ; i++) {
                     var row$ = $('<tr/>');
                     for (var j = 0; j <columns.length ; j++) {
-                        var cellValues =myUserData[i][columns[j]];
+                        var cellValues = myUserData[i][columns[j]];
                         if (cellValues==null)cellValues="";
                         row$.append($('<td/>').html(cellValues));
                     }
@@ -58,7 +62,6 @@
                 $(selector).append(headerTr$);
                 return columnSet;
             }
-*/
 
     fetch('http://localhost:9090/storeslist').then(respone => respone.json())
         .then((dataStore) => {
