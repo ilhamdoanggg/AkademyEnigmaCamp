@@ -2,19 +2,25 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <script src="fecth.js"></script>
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+          crossorigin="anonymous">
+    <script src="js/fecth.js"></script>
     <title>Store</title>
 </head>
 <body>
+
 <div>
     <h1>Getting Started With Fetch API</h1>
-    <button onclick="fetchUserData();">Fetch User Data</button>
-    <button onclick="fetchStoreData();">Fetch Store Data</button>
+    <button onclick="fetchUserData()">Fetch User Data</button>
+    <button onclick="fetchStoreData()">Fetch Store Data</button>
     <button onclick="fetchProductData();">Fetch Product Data</button>
-    
-    <pre class="responseUser"></pre>
-    <pre class="responseStore"></pre>
-    <pre class="responseProduct"></pre>
+
+    <div class="responseUser">
+    </div>
+    <div class="responseStore"></div>
+    <div class="responseProduct"></div>
 </div>
 </body>
 </html>
