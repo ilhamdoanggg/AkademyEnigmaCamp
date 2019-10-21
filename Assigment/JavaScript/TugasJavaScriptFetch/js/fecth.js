@@ -22,7 +22,7 @@ function fetchUserData() {
                 output += `<td>${users.email}</td>`;
                 output += '</tr>';
             });
-            document.querySelector(".responseUser").innerHTML = output;
+            document.querySelector(".hasilTabel").innerHTML = output;
         })
 }
 
@@ -52,7 +52,7 @@ function fetchStoreData() {
                 // output += `<td>${store.products}</td>`;
                 output += '</tr>';
             });
-            document.querySelector(".responseUser").innerHTML = output;
+            document.querySelector(".hasilTabel").innerHTML = output;
         })
 }
 
@@ -80,6 +80,6 @@ function fetchProductData() {
                 output += `<td> Rp. ${product.price}</td>`;
                 output += '</tr>';
             });
-            document.querySelector(".responseUser").innerHTML = output;
+            document.querySelector(".hasilTabel").innerHTML = output;
         })
 }
