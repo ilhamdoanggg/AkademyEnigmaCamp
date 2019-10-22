@@ -1,24 +1,41 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
-import CardComponent from "./CardComponent";
+import Card from "./components/Card";
+import Header from "./components/Header";
+import FooterComponent from "./components/FooterComponent";
 
 class App extends React.Component {
     constructor(props){
         super(props);
         this.state={
-            people:{name:"ilham", age:10}
+            people:[{name:"ilham", age:10},
+                {name:"ilham", age:10},
+                {name:"ilham", age:10},
+                {name:"ilham", age:10},
+                {name:"ilham", age:10},
+                {name:"ilham", age:10},
+                {name:"ilham", age:10}]
         }
     }
+    componentDidMount() {
+        console.log("ini di mount");
+    }
+    componentWillMount() {
+        console.log("componentWillMount()")
+    }
+
     render() {
+        let item =[];
+        console.log(item);
+        //for(let )
+        for (let i = 0; i <this.state.people.length ; i++) {
+            item.push(<Card people={this.state.people[i]}/>)
+        }
         return (
             <div className="App">
-                <header className="App-header">
-                    <img src={logo} className="App-logo" alt="logo"/>
-                </header>
-                <CardComponent kirim={this.state.people} />
-                <CardComponent kirim={this.state.people} />
-                <CardComponent kirim={this.state.people} />
+                <Header></Header>
+                {item}
+                <FooterComponent></FooterComponent>
              </div>
         );
     }
