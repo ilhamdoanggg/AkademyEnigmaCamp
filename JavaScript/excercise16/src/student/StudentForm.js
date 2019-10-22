@@ -27,7 +27,7 @@ class StudentForm extends Component {
                     <label>Name :</label>
                     <input type="text" onChange={this.handleName} value={this.state.name}/>
                     <label>age :</label>
-                    <input type="text" onChange={this.handleAge} value={this.state.age}/>
+                    <input type="number" onChange={this.handleAge} value={this.state.age}/>
                     <h1>{this.state.tulisan}</h1>
                 </form>
                 <button onClick={this.handelSubmit}>Pencet</button>

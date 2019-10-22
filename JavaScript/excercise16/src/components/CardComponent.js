@@ -6,8 +6,9 @@ class CardComponent extends Component {
         return (
             <card>
             <div className="card">
-                <h1>{this.props.item.name}</h1>
-                <h1>{this.props.item.age}</h1>
+                <label>Name : {this.props.item.name}</label>
+            <br/>
+                <label>Age : {this.props.item.age}</label>
             </div>
             </card>
         );
