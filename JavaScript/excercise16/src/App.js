@@ -5,39 +5,28 @@ import Header from "./components/Header";
 import FooterComponent from "./components/FooterComponent";
 
 class App extends React.Component {
-    constructor(props){
+    constructor(props) {
         super(props);
-        this.state={
-            people:[{name:"ilham", age:10},
-                {name:"ilham", age:10},
-                {name:"ilham", age:10},
-                {name:"ilham", age:10},
-                {name:"ilham", age:10},
-                {name:"ilham", age:10},
-                {name:"ilham", age:10}]
+        this.state = {
+            people: {name: "ilham", age: 10}
+//                {name: "as", age: 10}
         }
-    }
-    componentDidMount() {
-        console.log("ini di mount");
-    }
-    componentWillMount() {
-        console.log("componentWillMount()")
     }
 
     render() {
-        let item =[];
-        console.log(item);
-        //for(let )
-        for (let i = 0; i <this.state.people.length ; i++) {
-            item.push(<Card people={this.state.people[i]}/>)
-        }
         return (
             <div className="App">
                 <Header></Header>
-                {item}
+                <Card people={this.state.people}></Card>
+                <button onClick={this.ubah}>Pencet Aku</button>
                 <FooterComponent></FooterComponent>
-             </div>
+            </div>
         );
+    }
+
+    ubah = () => {
+        this.state.people.name = "Malhi";
+        this.setState(this.state);
     }
 }
 

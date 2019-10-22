@@ -3,7 +3,7 @@ class FooterComponent extends React.Component{
     render() {
         return (
             <div>
-                <footer className="FooterComponent">
+                <footer>
                     Ini Footer
                 </footer>
             </div>
