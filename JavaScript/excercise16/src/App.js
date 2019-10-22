@@ -2,37 +2,39 @@ import React from 'react';
 import './style/App.css';
 import Card from "./components/Card";
 import Header from "./components/Header";
-import FooterComponent from "./components/FooterComponent";
 import StudentForm from "./student/StudentForm";
+import FooterComponent from "./components/FooterComponent";
 
 class App extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            people: {name: "ilham", age: 10}
+            peoples: []
         }
-        // this.handleChange=this.handleChange.bind(this)
     }
 
     render() {
+        let item = []
+        for (let i = 0; i < this.state.peoples.length; i++) {
+            item.push(<Card item={this.state.peoples[i]}/>)
+        }
         return (
             <div className="App">
                 <Header></Header>
-                <Card people={this.state.tulisan}>
-                </Card>
-                <button onClick={this.ubah}>Pencet</button>
-                <StudentForm></StudentForm>
+                {item}
+                <StudentForm action={this.ubah}></StudentForm>
                 <FooterComponent></FooterComponent>
             </div>
         );
     }
-    ubah = () => {
-        //this.state.people.name = "Malhi";
-        //this.setState({people:{name:"Asu", age:"23"}});\
-        let newPeople = {...this.state.people}
-        newPeople.name="Ganteng";
-        newPeople.age=12;
-        this.setState({people:{...newPeople}})
+
+    ubah = (name, age) => {
+        let newPeople = {};
+        newPeople.name=name;
+        newPeople.age=age;
+        this.state.peoples.push(newPeople)
+        this.setState(this.state);
     }
 }
+
 export default App;
