@@ -1,14 +1,15 @@
 import React from "react";
 
 class Card extends React.Component {
-    render() {
-        return (
-            <div className="card">
-                <h1>{this.props.people.name}</h1>
-                <p>{this.props.people.age}</p>
-            </div>
 
-        );
-    }
+        render() {
+            return (
+                <div className="card">
+                    <h1>{this.props.tulisan}</h1>
+
+                </div>
+
+            );
+        }
 }
 export default Card;
