@@ -1,15 +1,17 @@
-import React from "react";
+import React, {Component} from "react";
 
-class Card extends React.Component {
+class CardComponent extends Component {
 
     render() {
         return (
+            <card>
             <div className="card">
                 <h1>{this.props.item.name}</h1>
                 <h1>{this.props.item.age}</h1>
             </div>
+            </card>
         );
     }
 }
 
-export default Card;
+export default CardComponent;

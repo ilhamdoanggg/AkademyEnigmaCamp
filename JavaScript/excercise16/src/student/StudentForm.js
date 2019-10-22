@@ -1,6 +1,6 @@
-import React from "react";
+import React, {Component} from "react";
 
-class StudentForm extends React.Component {
+class StudentForm extends Component {
     constructor(props) {
         super(props)
         this.state = {name: "", age: ""}
@@ -25,13 +25,9 @@ class StudentForm extends React.Component {
             <div className="card">
                 <form className="wrapper">
                     <label>Name :</label>
-                    <input type="text"
-                           onChange={this.handleName}
-                           value={this.state.name}/>
+                    <input type="text" onChange={this.handleName} value={this.state.name}/>
                     <label>age :</label>
-                    <input type="text"
-                           onChange={this.handleAge}
-                           value={this.state.age}/>
+                    <input type="text" onChange={this.handleAge} value={this.state.age}/>
                     <h1>{this.state.tulisan}</h1>
                 </form>
                 <button onClick={this.handelSubmit}>Pencet</button>

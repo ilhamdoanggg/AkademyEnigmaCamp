@@ -1,6 +1,6 @@
 import React from 'react';
 import './style/App.css';
-import Card from "./components/Card";
+import CardComponent from "./components/CardComponent";
 import Header from "./components/Header";
 import StudentForm from "./student/StudentForm";
 import FooterComponent from "./components/FooterComponent";
@@ -16,7 +16,7 @@ class App extends React.Component {
     render() {
         let item = []
         for (let i = 0; i < this.state.peoples.length; i++) {
-            item.push(<Card item={this.state.peoples[i]}/>)
+            item.push(<CardComponent item={this.state.peoples[i]}/>)
         }
         return (
             <div className="App">
