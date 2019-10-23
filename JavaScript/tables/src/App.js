@@ -18,8 +18,8 @@ class App extends Component {
         }
     }
 
-    handleFormSubmit = (e) => {
-        e.preventDefault();
+    handleFormSubmit = (event) => {
+        event.preventDefault();
         let items = [...this.state.items];
         items.push({
             id: this.state.id,
@@ -36,9 +36,9 @@ class App extends Component {
         });
         window.alert("SUKSES")
     };
-    handleInputChange = (e) => {
-        let input = e.target;
-        let name = e.target.name;
+    handleInputChange = (event) => {
+        let input = event.target;
+        let name = event.target.name;
         let value = input.value;
         this.setState({
             [name]: value
@@ -55,6 +55,8 @@ class App extends Component {
                     </div>
                     <div>
                         <Switch>
+                            <Route path="/product-detail"><ProductDetail items={this.state.items}/>
+                            </Route>
                             <Route path="/product-list">
                                 <ProductList items={ this.state.items }/>
                             </Route>

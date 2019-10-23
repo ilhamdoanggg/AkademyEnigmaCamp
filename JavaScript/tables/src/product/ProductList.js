@@ -17,11 +17,9 @@ class ProductList extends Component {
                                 <td>{item.quantity}</td>
                                 <td>{item.price}</td>
                                 <td>
-                                    <Link to={"/product-detail"+item.id}>
+                                    <Link to={"/product-detail/"+item.id}>
                                     detail</Link>
                                 </td>
-                                <Route path="/product-detail"><ProductDetail items={this.state.item.id}/>
-                                </Route>
                             </tr>
                         );
                     })}

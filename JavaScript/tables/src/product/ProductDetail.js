@@ -2,7 +2,8 @@ import React, {Component} from "react";
 
 class ProductDetail extends Component {
     render() {
-        const param=this.state.
+        // const param=this.state.
+        let param=this.state.items;
         return (
             <div>
                 <div id="Form">
