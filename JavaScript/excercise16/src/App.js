@@ -3,7 +3,6 @@ import './style/App.css';
 import CardComponent from "./components/CardComponent";
 import Header from "./components/Header";
 import StudentForm from "./student/StudentForm";
-import FooterComponent from "./components/FooterComponent";
 import Timer from "./components/Timer";
 import Toogle from "./components/Toogle";
 

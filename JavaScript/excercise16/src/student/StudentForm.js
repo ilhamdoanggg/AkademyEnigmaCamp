@@ -1,4 +1,5 @@
 import React, {Component} from "react";
+import Button from "@material-ui/core/Button";
 
 class StudentForm extends Component {
     constructor(props) {
@@ -26,11 +27,12 @@ class StudentForm extends Component {
                 <form className="wrapper">
                     <label>Name :</label>
                     <input type="text" onChange={this.handleName} value={this.state.name}/>
+                    <br/>
                     <label>age :</label>
                     <input type="number" onChange={this.handleAge} value={this.state.age}/>
                     <h1>{this.state.tulisan}</h1>
                 </form>
-                <button onClick={this.handelSubmit}>Pencet</button>
+                <Button  onClick={this.handelSubmit} color="primary">Pencet</Button>
             </div>
         );
     }
