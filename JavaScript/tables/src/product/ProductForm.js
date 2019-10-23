@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 
-class ProductForm extends Component{
+class ProductForm extends Component {
     render() {
         return (
             <div id="Form">
@@ -32,4 +32,5 @@ class ProductForm extends Component{
         );
     }
 }
+
 export default ProductForm;

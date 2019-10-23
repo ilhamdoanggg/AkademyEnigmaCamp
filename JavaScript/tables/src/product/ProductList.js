@@ -1,4 +1,6 @@
 import React, {Component} from 'react';
+import {Link, Switch, Route} from "react-router-dom";
+import ProductDetail from "./ProductDetail";
 
 class ProductList extends Component {
     render() {
@@ -6,12 +8,7 @@ class ProductList extends Component {
         return(
             <div id="Table">
                 <table>
-                    <tr>
-                        <th>Id</th>
-                        <th>Product Name</th>
-                        <th>Quantity</th>
-                        <th>Price</th>
-                    </tr>
+                    <tr><th>Id</th><th>Product Name</th><th>Quantity</th><th>Price</th><th>Detail</th></tr>
                     {items.map(item => {
                         return (
                             <tr>
@@ -19,6 +16,12 @@ class ProductList extends Component {
                                 <td>{item.productName}</td>
                                 <td>{item.quantity}</td>
                                 <td>{item.price}</td>
+                                <td>
+                                    <Link to={"/product-detail"+item.id}>
+                                    detail</Link>
+                                </td>
+                                <Route path="/product-detail"><ProductDetail items={this.state.item.id}/>
+                                </Route>
                             </tr>
                         );
                     })}

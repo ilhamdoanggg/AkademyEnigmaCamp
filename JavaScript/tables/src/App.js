@@ -4,6 +4,7 @@ import {Route, StaticRouter, Switch, Link, BrowserRouter as Router} from 'react-
 import ProductList from "./product/ProductList";
 import ProductForm from "./product/ProductForm";
 import "./style/App.css"
+import ProductDetail from "./product/ProductDetail";
 
 class App extends Component {
     constructor(props) {
@@ -16,6 +17,7 @@ class App extends Component {
             items: []
         }
     }
+
     handleFormSubmit = (e) => {
         e.preventDefault();
         let items = [...this.state.items];
@@ -25,7 +27,6 @@ class App extends Component {
             quantity: this.state.quantity,
             price: this.state.price
         });
-
         this.setState({
             items,
             id: '',
@@ -33,8 +34,8 @@ class App extends Component {
             quantity: '',
             price: ''
         });
+        window.alert("SUKSES")
     };
-
     handleInputChange = (e) => {
         let input = e.target;
         let name = e.target.name;
@@ -57,7 +58,6 @@ class App extends Component {
                             <Route path="/product-list">
                                 <ProductList items={ this.state.items }/>
                             </Route>
-
                             <Route path="/product-form">
                                 <ProductForm
                                     handleFormSubmit={ this.handleFormSubmit }
@@ -67,6 +67,7 @@ class App extends Component {
                                     newQuantity={this.state.quantity}
                                     newPrice={this.state.price}
                                 />
+
                             </Route>
 
                         </Switch>
