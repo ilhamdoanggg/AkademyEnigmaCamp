@@ -3,28 +3,16 @@ import React, {Component} from "react";
 class ProductDetail extends Component {
     render() {
         // const param=this.state.
-        let param=this.state.items;
+//        let items = this.props.items;
+        let param=this.props.match.params.id;
+        let detail = Object.create(this.props.items)
+        let getProdusctId = {...detail.find(detail => detail.id === parseInt(param))}
+        console.log(this.props.match.params.id)
+        console.log(detail)
+        console.log(getProdusctId)
         return (
             <div>
-                <div id="Form">
-                    <h3>Add a new Product to the table</h3>
-                    <label htmlFor="id">
-                        Id:
-                        <input id="id" type="text" name="id"/>
-                    </label>
-                    <label htmlFor="productName">
-                        Product Name:
-                        <input id="productName" type="text" name="productName"/>
-                    </label>
-                    <label htmlFor="quantity">
-                        Quantity :
-                        <input id="quantity" type="number" name="quantity"/>
-                    </label>
-                    <label htmlFor="price">
-                        Price :
-                        <input id="price" type="number" name="price"/>
-                    </label>
-                </div>
+                    <h1>{getProdusctId.id}</h1>
              </div>
         );
     }

@@ -17,7 +17,7 @@ class ProductList extends Component {
                                 <td>{item.quantity}</td>
                                 <td>{item.price}</td>
                                 <td>
-                                    <Link to={"/product-detail/"+item.id}>
+                                    <Link to={"/product-list/"+item.id}>
                                     detail</Link>
                                 </td>
                             </tr>
