@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import Fab from "@material-ui/core/Fab";
 
 class Timer extends Component{
     constructor(props){
@@ -21,7 +22,11 @@ class Timer extends Component{
 
     render() {
         return(
-          <div>{this.state.time} detik</div>
+            <div><Fab
+                variant="extended"
+            >
+              {this.state.time} detik
+            </Fab></div>
         );
     }
 }

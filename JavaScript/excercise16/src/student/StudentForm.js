@@ -6,7 +6,6 @@ class StudentForm extends Component {
         super(props)
         this.state = {name: "", age: ""}
     }
-
     handleName = (event) => {
         console.log("ini name")
         this.setState({name: event.target.value});
@@ -20,7 +19,6 @@ class StudentForm extends Component {
         let age = this.state.age;
         this.props.action(name, age);
     }
-
     render() {
         return (
             <div className="card">

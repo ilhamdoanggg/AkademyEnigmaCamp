@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import Button from "@material-ui/core/Button";
 
 class Toogle extends Component {
     constructor(props){
@@ -15,9 +16,9 @@ class Toogle extends Component {
     }
     render() {
         return(
-            <button onClick={this.handleClick}>
+            <Button variant="contained" color="primary" onClick={this.handleClick}>
                 Kondisi Sekarang  {this.state.toogleStatus ? 'ON':'OFF'}
-            </button>
+            </Button>
         )
     }
 }

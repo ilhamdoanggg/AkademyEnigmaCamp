@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="">
+    <label for="">Name :</label>
+    <input type="text" onkeyup="pencetAku()" name="name" id="name">
+    <button type="button" onclick="pencetAku()">Pencet Aku Mas</button>
+    <button type="button" onclick="culikAku()">Culik Aku Mas</button>
+    <button type="button" onclick="">Pulangkan Aku Mas</button>
+</form>
+<h1 id="namaLabel"></h1>
+<h1 id=""></h1>
+</body>
+<script>
+    function pencetAku() {
+        var nama = document.getElementById("name").value
+        document.getElementById("namaLabel").innerHTML=nama
+    }
+    function culikAku() {
+        document.getElementById("namaLabel").style.display="none";
+    }
+    function pulangkanAku() {
+        var nama = document.getElementById("namaLabel")
+    }
+</script>
+</html>
