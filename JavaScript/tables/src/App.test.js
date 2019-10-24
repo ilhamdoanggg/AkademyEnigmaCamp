@@ -1,9 +1,16 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import App from './App';
+import {shallow} from "enzyme";
 
-it('renders without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(<App />, div);
-  ReactDOM.unmountComponentAtNode(div);
+describe('App Component', ()=> {
+  describe('Render',  ()=> {
+    const appContainer = shallow(<App/>)
+    it('should contain one div', ()=> {
+      expect(appContainer.find('div')).toHaveLength(3)
+    });
+    it('should contain one header component as a component', ()=> {
+      expect(appContainer.find('div').children('HeaderComponent')).toHaveLength(1)
+    });
+  });
 });
+
