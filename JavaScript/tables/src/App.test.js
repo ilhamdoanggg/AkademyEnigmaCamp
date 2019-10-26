@@ -25,6 +25,9 @@ describe('App Component', ()=> {
     it('should contain three Route', ()=> {
       expect(appContainer.find('Switch').children('Route')).toHaveLength(3)
     });
+    // it('should contain Prodcutlist', ()=> {
+    //   expect(appContainer.find('ProductList').children('Route')).toHaveLength(1)
+    // });
   });
 });
 

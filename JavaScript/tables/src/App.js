@@ -55,7 +55,9 @@ class App extends Component {
                     </div>
                     <div>
                         <Switch>
-                            <Route path="/product-list/:id" render={(props)=> <ProductDetail{...props} items={this.state.items}/>}/>
+                            <Route path="/product-detail/:id"
+                                   render={(props)=> <ProductDetail{...props}
+                                                                   items={this.state.items}/>}/>
                             <Route exact path="/product-list">
                                 <ProductList items={ this.state.items }/>
                             </Route>

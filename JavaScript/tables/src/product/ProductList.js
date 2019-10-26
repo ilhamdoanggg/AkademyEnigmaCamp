@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Link, Switch, Route} from "react-router-dom";
+import {Link} from "react-router-dom";
 import ProductDetail from "./ProductDetail";
 
 class ProductList extends Component {
@@ -17,7 +17,7 @@ class ProductList extends Component {
                                 <td>{item.quantity}</td>
                                 <td>{item.price}</td>
                                 <td>
-                                    <Link to={"/product-list/"+item.id}>
+                                    <Link to={"/product-detail/"+item.id}>
                                     detail</Link>
                                 </td>
                             </tr>
