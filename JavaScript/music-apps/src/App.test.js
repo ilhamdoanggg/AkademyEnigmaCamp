@@ -21,7 +21,6 @@ describe('App Component', ()=> {
       expect(appContainer.find('label')).toHaveLength(1)
     });
 
-
     describe( 'function', ()=> {
       it('input name should contain string when onChjange perform', ()=> {
         appContainer.find('input').simulate("change", {target:{valeue:"ilham"}})
