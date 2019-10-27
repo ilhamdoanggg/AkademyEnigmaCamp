@@ -1,10 +1,8 @@
 package com.enigma.entity;
 import org.hibernate.annotations.GenericGenerator;
 import org.springframework.format.annotation.DateTimeFormat;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+
+import javax.persistence.*;
 import java.util.Date;
 import java.util.Objects;
 
@@ -18,8 +16,11 @@ public class Song {
     @GenericGenerator(name = "system-uuid", strategy = "uuid")
     private String  id;
     private String songName;
+    @Temporal(TemporalType.DATE)
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date release;
+    @Transient
+    private String idArtistTrancient;
     @ManyToOne
     private Artist idArtist;
 
@@ -36,10 +37,10 @@ public class Song {
      * @param songName the song name
      * @param release  the release
      */
-    public Song(String id, String songName, Date release) {
-        this.id = id;
+    public Song(String songName, Date release, String idArtistTrancient) {
         this.songName = songName;
         this.release = release;
+        this.idArtistTrancient = idArtistTrancient;
     }
 
     /**
@@ -112,6 +113,23 @@ public class Song {
      */
     public void setIdArtist(Artist idArtist) {
         this.idArtist = idArtist;
+    }
+    /**
+     * Gets id artist trancient.
+     *
+     * @return the id artist trancient
+     */
+    public String getIdArtistTrancient() {
+        return idArtistTrancient;
+    }
+
+    /**
+     * Sets id artist trancient.
+     *
+     * @param idArtistTrancient the id artist trancient
+     */
+    public void setIdArtistTrancient(String idArtistTrancient) {
+        this.idArtistTrancient = idArtistTrancient;
     }
 
     @Override

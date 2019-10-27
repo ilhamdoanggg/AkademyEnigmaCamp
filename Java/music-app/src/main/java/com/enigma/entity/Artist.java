@@ -2,10 +2,8 @@ package com.enigma.entity;
 import org.hibernate.annotations.GenericGenerator;
 import org.springframework.format.annotation.DateTimeFormat;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Objects;
@@ -21,10 +19,11 @@ public class Artist {
     private String  id;
     private String name;
     private String birdPlace;
+    @Temporal(TemporalType.DATE)
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date debut;
-    @OneToMany(mappedBy = "idArtist")
-    private List<Song> song;
+    @OneToMany(mappedBy = "idArtist", cascade = CascadeType.PERSIST)
+    private List<Song> song = new ArrayList<>();
 
     /**
      * Instantiates a new Artist.
@@ -40,8 +39,7 @@ public class Artist {
      * @param birdPlace the bird place
      * @param debut     the debut
      */
-    public Artist(String id, String name, String birdPlace, Date debut) {
-        this.id = id;
+    public Artist(String name, String birdPlace, Date debut) {
         this.name = name;
         this.birdPlace = birdPlace;
         this.debut = debut;

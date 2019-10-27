@@ -1,24 +1,28 @@
 package com.enigma.controller;
 
+import com.enigma.entity.Artist;
+import com.enigma.services.interfaces.ArtistServices;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 @RestController
 public class ArtistController {
-/*    @Autowired
-    ObjectMapper objectMapper;
-    @CrossOrigin
+    @Autowired
+    ArtistServices artistServices;
+
     @GetMapping("/artists")
-    public List<Artist> getALlArtist() throws JsonProcessingException {
-        List<Artist> artists = new ArrayList<>();
-        artists.add(new Artist("1", "susu", "Serang", new Date()));
-        artists.add(new Artist("12", "asd", "Serang", new Date()));
-        artists.add(new Artist("10", "saaaa", "Serang", new Date()));
-        artists.add(new Artist("2", "fffff", "Serang", new Date()));
-        artists.add(new Artist("3", "asdakd", "Serang", new Date()));
-        artists.add(new Artist("11", "asdakd", "Serang", new Date()));
-        artists.add(new Artist("5", "asdakd", "Serang", new Date()));
-        artists.add(new Artist("4", "asdakd", "Serang", new Date()));
-        artists.add(new Artist("32", "asdakd", "Serang", new Date()));
-        return artists;
-    }*/
+    public List<Artist> getAllArtistsData(Artist artist){
+        return artistServices.getAllArtist(artist);
+    }
+    @GetMapping("/artist/{id}")
+    public Artist getArtistByIdRestController(@PathVariable String id){
+        return artistServices.getArtistById(id);
+    }
+
+
 }
