@@ -41,10 +41,7 @@ public class ArtistServiceTest {
      */
     @Test
     public void saveDataArtistExceptionCreated(){
-        Artist newArtist = new Artist("3u4i324yubsdbf", "Data", "serang", new Date());
-//        Artist newArtist= new Artist();
-//        newArtist.setName("aaa");
-//        newArtist.setBirdPlace("Neraka");
+        Artist newArtist = new Artist("Data", "serang", new Date());
         Artist baru = artistServices.saveArtist(newArtist);
         Artist lama = artistRepository.findById(baru.getId()).get();
         assertEquals(baru, lama);
@@ -55,8 +52,8 @@ public class ArtistServiceTest {
      */
     @Test
     public void getAllDataInArtistDataMustAssertEqualsHave2(){
-        Artist newArtist = new Artist("1", "Data", "serang", new Date());
-        Artist oldArtist = new Artist("1", "Data", "serang", new Date());
+        Artist newArtist = new Artist( "Data", "serang", new Date());
+        Artist oldArtist = new Artist( "Data", "serang", new Date());
         artistServices.saveArtist(newArtist);
         artistServices.saveArtist(oldArtist);
         assertEquals(2, artistRepository.findAll().size());
@@ -86,8 +83,8 @@ public class ArtistServiceTest {
         newArtist.setName("Dewa 19 18");
         artistServices.saveArtist(newArtist);
         artistRepository.findById(newArtist.getId());
-        String getId=newArtist.getId();
-        Assert.assertNotNull(newArtist);
+        String getId = newArtist.getId();
+        assertEquals(getId, newArtist.getId());
     }
 
     /**
