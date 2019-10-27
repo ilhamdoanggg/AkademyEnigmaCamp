@@ -3,6 +3,8 @@ import com.enigma.entity.Artist;
 import com.enigma.repository.ArtistRepository;
 import com.enigma.services.interfaces.ArtistServices;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -18,9 +20,10 @@ public class ArtistService implements ArtistServices {
     }
 
     @Override
-    public List<Artist> getAllArtist(Artist artist) {
-        return artistRepository.findAll();
+    public Page<Artist> getAllArtist(Pageable pageable) {
+        return artistRepository.findAll(pageable);
     }
+
 
     @Override
     public Artist getArtistById(String id) {

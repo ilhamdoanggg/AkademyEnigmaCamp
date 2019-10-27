@@ -1,6 +1,8 @@
 package com.enigma.services.interfaces;
 
 import com.enigma.entity.Artist;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 import java.util.List;
 
@@ -22,7 +24,7 @@ public interface ArtistServices {
      * @param artist the artist
      * @return the all artist
      */
-    List<Artist> getAllArtist(Artist artist);
+    Page<Artist> getAllArtist(Pageable pageable);
 
     /**
      * Gets artist by id.
@@ -38,5 +40,4 @@ public interface ArtistServices {
      * @param id the id
      */
     void delete(String id);
-
 }

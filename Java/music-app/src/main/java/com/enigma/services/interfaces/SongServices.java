@@ -1,13 +1,14 @@
 package com.enigma.services.interfaces;
 
 import com.enigma.entity.Song;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 import java.util.List;
 
 /**
  * The interface Song services.
  */
-
 public interface SongServices {
     /**
      * Save song song.
@@ -24,6 +25,14 @@ public interface SongServices {
      * @return the all song
      */
     List<Song> getAllSong(Song song);
+
+    /**
+     * Gets all song by page.
+     *
+     * @param pageable the pageable
+     * @return the all song by page
+     */
+    Page<Song> getAllSongByPage(Pageable pageable);
 
     /**
      * Gets song by id.

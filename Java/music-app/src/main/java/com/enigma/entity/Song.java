@@ -3,6 +3,7 @@ import org.hibernate.annotations.GenericGenerator;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Objects;
 
@@ -33,7 +34,6 @@ public class Song {
     /**
      * Instantiates a new Song.
      *
-     * @param id       the id
      * @param songName the song name
      * @param release  the release
      */
@@ -139,11 +139,11 @@ public class Song {
         Song song = (Song) o;
         return Objects.equals(id, song.id) &&
                 Objects.equals(songName, song.songName) &&
-                Objects.equals(release, song.release);
+                Objects.equals(formatDate(release), formatDate(song.release));
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, songName, release, idArtist);
+    private String formatDate(Date date){
+        return new SimpleDateFormat("yyyy-MM-dd").format(date);
     }
+
 }

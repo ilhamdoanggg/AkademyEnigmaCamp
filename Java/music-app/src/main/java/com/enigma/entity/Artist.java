@@ -3,14 +3,9 @@ import org.hibernate.annotations.GenericGenerator;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Objects;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
-/**
- * The type Artist.
- */
 @Entity
 public class Artist {
     @Id
@@ -22,7 +17,7 @@ public class Artist {
     @Temporal(TemporalType.DATE)
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date debut;
-    @OneToMany(mappedBy = "idArtist", cascade = CascadeType.PERSIST)
+    @OneToMany(mappedBy = "idArtist", cascade = CascadeType.ALL)
     private List<Song> song = new ArrayList<>();
 
     /**
@@ -34,7 +29,6 @@ public class Artist {
     /**
      * Instantiates a new Artist.
      *
-     * @param id        the id
      * @param name      the name
      * @param birdPlace the bird place
      * @param debut     the debut
@@ -143,11 +137,10 @@ public class Artist {
         return Objects.equals(id, artist.id) &&
                 Objects.equals(name, artist.name) &&
                 Objects.equals(birdPlace, artist.birdPlace) &&
-                Objects.equals(debut, artist.debut);
+                Objects.equals(formatDate(debut), formatDate(artist.debut));
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, name, birdPlace, debut);
+    private String formatDate(Date date){
+        return new SimpleDateFormat("yyyy-MM-dd").format(date);
     }
 }

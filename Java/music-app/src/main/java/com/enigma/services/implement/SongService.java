@@ -6,18 +6,14 @@ import com.enigma.repository.SongRepository;
 import com.enigma.services.interfaces.ArtistServices;
 import com.enigma.services.interfaces.SongServices;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-/**
- * The type Song service.
- */
 @Service
 public class SongService implements SongServices {
-    /**
-     * The Song repository.
-     */
     @Autowired
     SongRepository songRepository;
     @Autowired
@@ -32,6 +28,12 @@ public class SongService implements SongServices {
     public List<Song> getAllSong(Song song) {
         return songRepository.findAll();
     }
+
+    @Override
+    public Page<Song> getAllSongByPage(Pageable pageable) {
+        return songRepository.findAll(pageable);
+    }
+
     @Override
     public Song getSongById(String id) {
         if (!songRepository.findById(id).isPresent()){
