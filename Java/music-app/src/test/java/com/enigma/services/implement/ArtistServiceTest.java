@@ -8,6 +8,8 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.Date;
@@ -27,6 +29,7 @@ public class ArtistServiceTest {
     ArtistRepository artistRepository;
     @Autowired
     ArtistServices artistServices;
+    static Pageable pageable= PageRequest.of(0,10);
 
     /**
      * Clean up db.
@@ -56,7 +59,7 @@ public class ArtistServiceTest {
         Artist oldArtist = new Artist( "Data", "serang", new Date());
         artistServices.saveArtist(newArtist);
         artistServices.saveArtist(oldArtist);
-        assertEquals(2, artistRepository.findAll().size());
+        assertEquals(2, artistRepository.findAll(pageable).getTotalElements());
     }
 
     /**
@@ -71,7 +74,7 @@ public class ArtistServiceTest {
         newArtist.setName("Kangen Band");
         artistServices.saveArtist(newArtist);
         artistServices.delete(newArtist.getId());
-        assertTrue(artistRepository.findAll().isEmpty());
+        assertTrue(artistRepository.findAll(pageable).isEmpty());
     }
 
     /**
