@@ -10,9 +10,11 @@ import java.util.*;
 public class Artist {
     @Id
     @GeneratedValue(generator = "system-uuid")
-    @GenericGenerator(name = "system-uuid", strategy = "uuid")
+    @GenericGenerator(name = "system-uuid", strategy = "uuid2")
     private String  id;
     private String name;
+    @Lob
+    private byte[] dataPicture;
     private String birdPlace;
     @Temporal(TemporalType.DATE)
     @DateTimeFormat(pattern = "yyyy-MM-dd")
@@ -24,6 +26,14 @@ public class Artist {
      * Instantiates a new Artist.
      */
     public Artist() {
+    }
+
+    public byte[] getDataPicture() {
+        return dataPicture;
+    }
+
+    public void setDataPicture(byte[] dataPicture) {
+        this.dataPicture = dataPicture;
     }
 
     /**

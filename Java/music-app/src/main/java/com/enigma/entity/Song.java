@@ -1,4 +1,5 @@
 package com.enigma.entity;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.GenericGenerator;
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -14,7 +15,7 @@ import java.util.Objects;
 public class Song {
     @Id
     @GeneratedValue(generator = "system-uuid")
-    @GenericGenerator(name = "system-uuid", strategy = "uuid")
+    @GenericGenerator(name = "system-uuid", strategy = "uuid2")
     private String  id;
     private String songName;
     @Temporal(TemporalType.DATE)
@@ -22,6 +23,7 @@ public class Song {
     private Date release;
     @Transient
     private String idArtistTrancient;
+    @JsonIgnore
     @ManyToOne
     private Artist idArtist;
 
@@ -120,6 +122,9 @@ public class Song {
      * @return the id artist trancient
      */
     public String getIdArtistTrancient() {
+        if (idArtistTrancient==null){
+            return idArtist.getName();
+        }
         return idArtistTrancient;
     }
 
