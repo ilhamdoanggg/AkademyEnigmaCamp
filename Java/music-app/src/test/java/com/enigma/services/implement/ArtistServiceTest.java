@@ -16,24 +16,16 @@ import java.util.Date;
 
 import static org.junit.Assert.*;
 
-/**
- * The type Artist service test.
- */
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class ArtistServiceTest {
-    /**
-     * The Artist repository.
-     */
     @Autowired
     ArtistRepository artistRepository;
     @Autowired
     ArtistServices artistServices;
+
     static Pageable pageable= PageRequest.of(0,10);
 
-    /**
-     * Clean up db.
-     */
     @Before
     public void cleanUpDb(){
         artistRepository.deleteAll();

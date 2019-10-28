@@ -20,36 +20,18 @@ import java.util.Date;
 import static org.junit.Assert.*;
 import static org.junit.Assert.assertEquals;
 
-/**
- * The type Song service test.
- */
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class SongServiceTest {
-    /**
-     * The Song repository.
-     */
     @Autowired
     SongRepository songRepository;
-    /**
-     * The Song services.
-     */
     @Autowired
     SongServices songServices;
-    /**
-     * The Artist services.
-     */
     @Autowired
     ArtistServices artistServices;
 
-    /**
-     * The Pageable.
-     */
     static Pageable pageable= PageRequest.of(0,10);
 
-    /**
-     * Clean up db.
-     */
     @Before
     public void cleanUpDb(){
         songRepository.deleteAll();
@@ -128,6 +110,4 @@ public class SongServiceTest {
         midleSong = songServices.saveSong(midleSong);
         assertEquals(3, songRepository.findAll(pageable).getTotalElements());
     }
-
-
 }

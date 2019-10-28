@@ -60,8 +60,7 @@ public class ArtistControllerTest {
     }
 
     /**
-     * Should save new data artist by request
-     * body json must success fully.
+     * Should save new data artist by request body json must success fully.
      *
      * @throws Exception the exception
      */
@@ -111,6 +110,23 @@ public class ArtistControllerTest {
                         .value(artist.getId()));
     }
 
+    /**
+     * Gets all data artist.
+     *
+     * @throws Exception the exception
+     */
+/*    @Test
+    public void getAllDataArtist()throws Exception{
+        List<Artist> artists = new ArrayList<>();
+        artists.add(new Artist( "Kangen Band", "Lampung", new Date()));
+        artists.add(new Artist( "Kris sakti", "Kali deres", new Date()));
+        artists.add(new Artist( "Anak Kambing Makan Ayam Goreng", "Neraka", new Date()));
+        when(artistRepository.findAll()).thenReturn(artists);
+        mockMvc.perform(MockMvcRequestBuilders.get("/artists")
+                .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(jsonPath("$.id", hasSize(3))).andDo(print());
+    }*/
+
 //    @Test
 //    public void deleteArtistByIdShouldSuccessfully()throws Exception{
 //        //mockMvc.perform(delete("/artist/{id}", artistServices))
@@ -133,15 +149,5 @@ public class ArtistControllerTest {
         when()
     }*/
 
-    /*    @Test
-    public void getAllDataArtist()throws Exception{
-        Page<Artist> artists=new ArrayList<>();
-        artists.add(new Artist( "Kangen Band", "Lampung", new Date()));
-        artists.add(new Artist( "Kris sakti", "Kali deres", new Date()));
-        artists.add(new Artist( "Anak Kambing Makan Ayam Goreng", "Neraka", new Date()));
-        when(artistRepository.findAll()).thenReturn(artists);
-        mockMvc.perform(MockMvcRequestBuilders.get("/artists")
-                .contentType(MediaType.APPLICATION_JSON))
-                .andExpect(jsonPath("", hasSize(3))).andDo(print());
-    }*/
+    /**/
 }
