@@ -1,40 +1,29 @@
 import React, {Component} from 'react';
+import {BrowserRouter as Router} from "react-router-dom";
 // import logo from './logo.svg';
 import './style/App.css';
+import NavbarComponent from "./component/NavbarComponent";
+import FooterComponent from "./component/FooterComponent";
 import ArtistContainer from "./artist/ArtistContainer";
 
-class App extends Component{
-    constructor(props) {
-        super(props);
-        this.state={
-            name:"ilham",
-            outputName:""
-        }
-    }
-    handleChange=(event)=>{
-        this.setState({name: event.target.value});
-    }
-    onClick=(event)=>{
-        this.setState({outputName:this.state.name})
-    }
+class App extends Component {
+
     render() {
-        const data = [{name:"ilham"},{name:"ganteng"}]
-    return (
-        <div className="App">
-            <nav className="nav-wrapper">
-                    <a href="#" className="brand-logo left">Localhost Music App</a>
-                    <ul id="nav-mobile" className="left hide-on-med-and-down">
-                    </ul>
-                {/*<header className="nav-wrapper">*/}
-              {/*  <img src={logo} className="App-logo" alt="logo" />*/}
-              {/*</header>*/}
-            </nav>
-            <input value={this.state.name} onChange={this.handleChange}/>
-            <button onClick={this.onClick}>Click</button>
-            <label>{this.state.outputName}</label>
-            <ArtistContainer artists={data}/>
-        </div>
-    );
-  }
+        return (
+            <Router>
+                <div className="App">
+                    <NavbarComponent/>
+                    <main>
+                            <section className="container">
+                                <ArtistContainer></ArtistContainer>
+
+                            </section>
+                    </main>
+                </div>
+                <FooterComponent/>
+            </Router>
+        );
+    }
 }
+
 export default App;

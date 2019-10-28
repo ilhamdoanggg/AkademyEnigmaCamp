@@ -1,24 +1,20 @@
 import React, {Component} from 'react';
 
-class ArtistCard extends Component{
-    constructor(props) {
-        super(props);
-        this.state={
-            artist:{name:""}
-        }
-    }
-    componentDidMount() {
-        if (!(this.props.artist===undefined)){
-            this.setState({artist:this.props.artist})
-        }
-    }
+class ArtistCard extends Component {
     render() {
-        return(
-            <div className="card">
-                <h1>Card</h1>
-                <h2>{this.props.artist.name}</h2>
-            </div>
-        )
+        return (
+                    <section className="card">
+                    <div className="card-cascade narrower">
+                        <div className="card-panel">
+                            <img src="" alt="logo" className=""/>
+                            <p>Name Artist {this.props.data.name}</p>
+                            <p>Tempat Asal {this.props.data.birdPlace}</p>
+                            <p>Debut {this.props.data.debut}</p>
+                        </div>
+
+                    </div>
+                    </section>
+            );
     }
 }
 export default ArtistCard;
