@@ -13,8 +13,8 @@ public class Artist {
     @GenericGenerator(name = "system-uuid", strategy = "uuid2")
     private String  id;
     private String name;
-    @Lob
-    private byte[] dataPicture;
+//    @Lob
+//    private byte[] dataPicture;
     private String birdPlace;
     @Temporal(TemporalType.DATE)
     @DateTimeFormat(pattern = "yyyy-MM-dd")
@@ -28,13 +28,13 @@ public class Artist {
     public Artist() {
     }
 
-    public byte[] getDataPicture() {
+/*    public byte[] getDataPicture() {
         return dataPicture;
     }
 
     public void setDataPicture(byte[] dataPicture) {
         this.dataPicture = dataPicture;
-    }
+    }*/
 
     /**
      * Instantiates a new Artist.
