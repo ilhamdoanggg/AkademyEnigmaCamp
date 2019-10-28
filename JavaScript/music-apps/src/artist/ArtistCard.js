@@ -14,7 +14,7 @@ class ArtistCard extends Component{
     }
     render() {
         return(
-            <div>
+            <div className="card">
                 <h1>Card</h1>
                 <h2>{this.props.artist.name}</h2>
             </div>

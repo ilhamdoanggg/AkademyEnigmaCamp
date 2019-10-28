@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import ArtistCard from "./ArtistCard";
-import {fecthData} from "./ArtistServices";
+import {fecthData, fetchtPagination} from "./ArtistServices";
 
 class ArtistContainer extends Component{
     constructor(props) {
@@ -13,7 +13,7 @@ class ArtistContainer extends Component{
         this.fecthArtist()
     }
     fecthArtist =async ()=>{
-        const data = await fecthData();
+        const data = await fetchtPagination();
         console.log(data);
         if (!(data===undefined)){
             this.setState({artists:data})
