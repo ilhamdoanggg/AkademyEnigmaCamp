@@ -5,6 +5,7 @@ import './style/App.css';
 import NavbarComponent from "./component/NavbarComponent";
 import FooterComponent from "./component/FooterComponent";
 import ArtistContainer from "./artist/ArtistContainer";
+import SongContainer from "./song/SongContainer";
 
 class App extends Component {
 
@@ -15,7 +16,8 @@ class App extends Component {
                     <NavbarComponent/>
                     <main>
                             <section className="container">
-                                <ArtistContainer></ArtistContainer>
+                                {/*<ArtistContainer></ArtistContainer>*/}
+                                <SongContainer/>
 
                             </section>
                     </main>

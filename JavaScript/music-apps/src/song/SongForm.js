@@ -1,35 +1,35 @@
 import React, {Component} from 'react';
-import {saveData} from "./ArtistServices";
+import {saveData} from "./SongServices";
 
-class ArtistForm extends Component{
+class SongForm extends Component{
     constructor(props) {
         super(props);
         this.state = {
-            artistForm: {
-                artistName: "",
-                bornPlace: "",
-                debut: ""
+            songForm: {
+                songName: "",
+                idArtist: "",
+                release: ""
             }
         }
     }
     handleInputName = (event) => {
-        let artist = {...this.state.artistForm}
-        artist.name = event.target.value
-        this.setState({artistForm: {...artist}})
+        let song = {...this.state.songForm}
+        song.name = event.target.value
+        this.setState({songForm: {...song}})
     }
     handleInputBornPlace = (event) => {
-        let artist = {...this.state.artistForm}
-        artist.birdPlace = event.target.value
-        this.setState({artistForm: {...artist}})
+        let song = {...this.state.songForm}
+        song.birdPlace = event.target.value
+        this.setState({songForm: {...song}})
     }
     handleInputDebut = (event) => {
-        let artist = {...this.state.artistForm}
-        artist.debut = event.target.value
-        this.setState({artistForm: {...artist}})
+        let song = {...this.state.songForm}
+        song.debut = event.target.value
+        this.setState({songForm: {...song}})
     }
     handleSubmit = (event) => {
         event.preventDefault();
-        saveData(this.state.artistForm)
+        saveData(this.state.songForm)
     }
     render() {
 
@@ -39,22 +39,30 @@ class ArtistForm extends Component{
                     <div className="row">
                         <div className="input-field col s6">
                             <input type="text" className="validate"
-                                   placeholder="Artist Name" value={this.state.artistForm.name}
+                                   placeholder="Song Name" value={this.state.songForm.songName}
                                    onChange={this.handleInputName} required={true}/>
                         </div>
-                        <div className="input-field col s6">
-                            <input id="birthPlace" type="text"
-                                   className="validate" placeholder="Birth Place"
-                                   value={this.state.artistForm.birdPlace}
-                                   onChange={this.handleInputBornPlace} required={true}/>
+
+
+                        <div className="input-field col s12">
+                            <select className="browser-default">
+                                <option value="" selected>Choose your Artist</option>
+                                <option value="1"> </option>
+                            </select>
                         </div>
+                            {/*<input id="birthPlace" type="text"
+                                   className="validate" placeholder="Birth Place"
+                                   value={this.state.songForm.idArtistTrancient}
+                                   onChange={this.handleInputBornPlace} required={true}/>*/}
+
                     </div>
+
                     <div className="row">
                         <div className="input-field col s12">
                             <input id="debut" type="date" className="validate"
-                                   value={this.state.artistForm.debut}
+                                   value={this.state.songForm.release}
                                    onChange={this.handleInputDebut}/>
-                            <label htmlFor="debut">Date Debut</label>
+                            <label htmlFor="debut">Date Relese</label>
                         </div>
                     </div>
                     <div className="row">
@@ -75,4 +83,4 @@ class ArtistForm extends Component{
         );
     }
 }
-export default ArtistForm;
+export default SongForm;
