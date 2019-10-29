@@ -4,21 +4,24 @@ const increment = {type:'INCREMENT'};
 const decrement = {type:'DECREMENT'};
 const addElement = {type:'ADD_NEW_ELEMENT'};
 
-function counter(state=[], action) {
+function counter(state=[{name:"",age:null}], action) {
     switch (action.type) {
-        case 'ADD_NEW_ELEMENT':
-            return state.concat([0]);
-        case 'INCREMENT':
-            return state.map((element, index)=>{
-                if (index==action.index){
-                    return element+1
-                }else {
-                    return element
-                }
-            })
-        case 'DECREMENT':
-            return state -1;
-        default: return state;
+        case'ADD_NEW_ELEMENT' :return state.concat([{name:"",age:null}]);
+        case'INCREMENT' :return state.map((element,index)=>{
+            if (index == action.index){
+                return state =  { name: action.name , age:action.age}
+            }else {
+                return element
+            }
+        })
+        case'DECREMENT' :return state.map((element,index)=>{
+            if (index == action.index){
+                return element.pop
+            }else {
+                return element
+            }
+        })
+        default:return state;
     }
 }
 let store = createStore(counter);
@@ -26,12 +29,9 @@ store.subscribe(()=>{console.log(store.getState())})
 store.dispatch(addElement);
 store.dispatch(addElement);
 store.dispatch(addElement);
-store.dispatch(addElement);
-store.dispatch(addElement);
-store.dispatch({type:'INCREMENT', index:1});
-store.dispatch({type:'INCREMENT', index:2});
-store.dispatch({type:'INCREMENT', index:3});
-store.dispatch({type:'INCREMENT', index:4});
+store.dispatch({type:'INCREMENT', index:0, name:"jaka", age:30});
+store.dispatch({type:'INCREMENT', index:1, name:"Tony", age:90});
+store.dispatch({type:'INCREMENT', index:2, name:"kolek", age:80});
 
 
 /*
