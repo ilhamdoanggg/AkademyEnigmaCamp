@@ -7327,7 +7327,6 @@ body.keyboard-focused .select-dropdown.dropdown-content li:focus {
 }
 
 .file-field .file-path-wrapper {
-  overflow: hidden;
   padding-left: 10px;
 }
 

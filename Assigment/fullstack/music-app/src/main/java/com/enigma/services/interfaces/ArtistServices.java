@@ -1,9 +1,12 @@
 package com.enigma.services.interfaces;
 
 import com.enigma.entity.Artist;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.util.List;
 
 /**
@@ -40,4 +43,6 @@ public interface ArtistServices {
      * @param id the id
      */
     void delete(String id);
+
+    Artist saveArtistWithImage(MultipartFile multipartFile, String artist) throws JsonProcessingException, IOException;
 }

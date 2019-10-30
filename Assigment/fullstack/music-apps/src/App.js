@@ -16,8 +16,8 @@ class App extends Component {
                     <NavbarComponent/>
                     <main>
                             <section className="container">
-                                {/*<ArtistContainer></ArtistContainer>*/}
-                                <SongContainer/>
+                                <ArtistContainer></ArtistContainer>
+                                {/*<SongContainer/>*/}
 
                             </section>
                     </main>

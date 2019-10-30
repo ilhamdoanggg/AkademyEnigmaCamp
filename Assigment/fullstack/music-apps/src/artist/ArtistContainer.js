@@ -1,17 +1,12 @@
 import React, {Component} from 'react';
 import ArtistCard from "./ArtistCard";
-import {fetchPageArtistService} from "./ArtistServices";
+import {fetchPageArtistService, saveDataArtistWithImages} from "./ArtistServices";
 import ArtistForm from "./ArtistForm";
 
 class ArtistContainer extends Component {
     constructor(props) {
         super(props);
         this.state = { artists: [],
-            artistForm: {
-                artistName: "",
-                bornPlace: "",
-                debut: ""
-            },
             activePage: 0,
             totalPage: null
         }
@@ -19,7 +14,7 @@ class ArtistContainer extends Component {
     componentDidMount= () => {
         this.fetchData();
     }
-    fetchData = async (page) => {
+    fetchData = async (page=0) => {
         let dataArtistPage;
         if (page===undefined){
             dataArtistPage = await fetchPageArtistService(this.state.activePage);
@@ -29,8 +24,6 @@ class ArtistContainer extends Component {
         if (!(dataArtistPage === undefined)) {
             this.setState({artists: dataArtistPage.content})
         }
-        console.log(this.state.activePage +  " Active");
-        console.log(dataArtistPage.pageable.pageNumber);
         this.setPagination(dataArtistPage);
     }
     setPagination = (data) => {
@@ -41,6 +34,7 @@ class ArtistContainer extends Component {
             })
         }
     }
+
     handlePagination = (event) => {
         event.preventDefault();
         let page = parseInt(event.target.value);
@@ -49,6 +43,12 @@ class ArtistContainer extends Component {
         });
         this.fetchData(page);
     };
+
+    handleSumbit=(images,data)=>{
+        console.log(images,data);
+        saveDataArtistWithImages(images, data);
+        this.setState({...this.state.artists, artists: [...this.state.artists, data]});
+    }
 
     render() {
         let paginations = [];
@@ -62,7 +62,7 @@ class ArtistContainer extends Component {
         }
         return (
             <div className="container">
-                <ArtistForm/>
+                <ArtistForm submit={this.handleSumbit}/>
                 {this.state.artists.map(items => {
                     return <ArtistCard data={items}/>
                 })}

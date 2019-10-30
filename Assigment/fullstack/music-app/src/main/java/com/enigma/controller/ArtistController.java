@@ -2,13 +2,16 @@ package com.enigma.controller;
 
 import com.enigma.entity.Artist;
 import com.enigma.services.interfaces.ArtistServices;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.util.List;
 
 /**
@@ -17,6 +20,9 @@ import java.util.List;
 @RestController
 public class ArtistController {
 
+    /**
+     * The Artist services.
+     */
     @Autowired
     ArtistServices artistServices;
 
@@ -24,6 +30,7 @@ public class ArtistController {
 //    public List<Artist> getAllArtistsData(Artist artist){
 //        return artistServices.getAllArtist(artist);
 //    }
+
     /**
      * Gets artist new.
      *
@@ -34,6 +41,21 @@ public class ArtistController {
     @PostMapping("/artist")
     public Artist saveArtistNew(@RequestBody Artist artist){
         return artistServices.saveArtist(artist);
+    }
+
+    /**
+     * Save artist with image get from id artist artist.
+     *
+     * @param multipartFile the multipart file
+     * @param artist        the artist
+     * @return the artist
+     * @throws IOException the io exception
+     */
+    @CrossOrigin
+    @PostMapping("/artist-images")
+    public Artist saveArtistWithImageGetFromIdArtist(@RequestPart MultipartFile multipartFile,
+                                                     @RequestPart String artist) throws IOException {
+        return artistServices.saveArtistWithImage(multipartFile, artist);
     }
 
     /**

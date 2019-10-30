@@ -19,6 +19,21 @@ export async function saveData(event) {
     console.log(data)
     return data
 }
+export async function saveDataArtistWithImages(multipartFile, artist) {
+    let artistImages=new FormData();
+    artistImages.append("multipartFile", multipartFile);
+    artistImages.append("artist", JSON.stringify(artist));
+    const data = await fetch("http://localhost:9090/artist-images", {method:"POST",
+        body:artistImages})
+        .then((response)=>{
+            return response.json()
+        }).catch(reason => {
+            console.log(reason)
+        })
+    console.log(data)
+    return data
+}
+
 export async function fetchPageArtistService(page) {
     const data = await fetch(`http://localhost:9090/artists?page=${page}&size=8`, {method:"GET"})
         .then((response)=>{

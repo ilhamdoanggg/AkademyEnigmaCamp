@@ -1,15 +1,16 @@
 import React, {Component} from 'react';
-import {saveData} from "./ArtistServices";
+import {saveData, saveDataArtistWithImages} from "./ArtistServices";
 
 class ArtistForm extends Component{
     constructor(props) {
         super(props);
         this.state = {
             artistForm: {
-                artistName: "",
-                bornPlace: "",
+                name: "",
+                birdPlace: "",
                 debut: ""
-            }
+            },
+            images:[]
         }
     }
     handleInputName = (event) => {
@@ -27,12 +28,20 @@ class ArtistForm extends Component{
         artist.debut = event.target.value
         this.setState({artistForm: {...artist}})
     }
+    handleImageFile=(event)=>{
+        let bikinImages = event.target.files[0];
+        this.setState({images:bikinImages})
+        }
     handleSubmit = (event) => {
         event.preventDefault();
-        saveData(this.state.artistForm)
+        this.props.submit(this.state.images, this.state.artistForm)
+        // saveDataArtistWithImages( this.state.images, this.state.artistForm )
     }
     render() {
-
+        console.log(this.state.images)
+        console.log(this.state.artistForm.name)
+        console.log(this.state.artistForm.debut)
+        console.log(this.state.artistForm.birdPlace)
         return (
             <div>
                 <form className="col s12">
@@ -63,8 +72,9 @@ class ArtistForm extends Component{
                             <span>File</span>
                             <input type="file"/>
                         </div>
-                        <div className="file-path-wrapper">
-                            <input className="file-path validate" type="text"/>
+                        <div className="file-path">
+                            <input onChange={this.handleImageFile} name="file"
+                                   className="file-path validate" type="file"/>
                         </div>
                     </div>
                     </div>

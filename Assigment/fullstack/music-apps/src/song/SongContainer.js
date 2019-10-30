@@ -41,6 +41,7 @@ class SongContainer extends Component {
             })
         }
     }
+
     handlePagination = (event) => {
         event.preventDefault();
         let page = parseInt(event.target.value);
