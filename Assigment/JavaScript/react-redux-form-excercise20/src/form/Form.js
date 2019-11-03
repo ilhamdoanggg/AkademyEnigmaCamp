@@ -6,7 +6,7 @@ class Form extends Component{
     render() {
         return (
             <div>
-                <form>
+                <form className="form">
                     <label>name : </label>
                     <input type="text" onChange={this.handleNameInput}/>
                     <label>age : </label>

@@ -1,14 +1,11 @@
-
 const initialState={
     artist:[]
 }
-
 export default function formCounter(state=initialState, action) {
     switch (action.type) {
         case 'ADD_FORM_ELEMENT':
             return {...state, artist:state.artist.concat([{name:"", age:""}])}
         case 'INCREMENT_NAME':
-
             return {...state, artist:state.artist.map((element, index)=>{
                 if (index===action.index){
                     return {...element, name:action.name}
@@ -22,6 +19,8 @@ export default function formCounter(state=initialState, action) {
                     }
                     return element
                 })}
+        case 'REMOVE_FORM_ELEMENT':
+            return {...state, artist:state.artist.splice([{name:"", age:""}])}
         default:return state;
     }
 }

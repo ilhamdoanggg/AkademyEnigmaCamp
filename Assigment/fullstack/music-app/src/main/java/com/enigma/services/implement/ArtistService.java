@@ -1,5 +1,6 @@
 package com.enigma.services.implement;
 import com.enigma.entity.Artist;
+import com.enigma.entity.Song;
 import com.enigma.repository.ArtistRepository;
 import com.enigma.services.interfaces.ArtistServices;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -28,6 +29,9 @@ public class ArtistService implements ArtistServices {
 
     @Override
     public Artist saveArtist(Artist artist) {
+        for (Song song: artist.getSong()) {
+            song.setIdArtist(artist);
+        }
         return artistRepository.save(artist);
     }
 

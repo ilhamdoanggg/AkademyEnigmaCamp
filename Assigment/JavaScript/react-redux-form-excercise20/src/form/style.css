@@ -1,4 +1,4 @@
-/*	
+/*
 	Side Navigation Menu V2, RWD
 	===================
 	License:
@@ -18,30 +18,15 @@ body {
     color:#A7A1AE;
     background-color:#1F2739;
 }
-
-h1 {
-    font-size:3em;
-    font-weight: 300;
-    line-height:1em;
+.btn-download {
+    height: 50px;
     text-align: center;
-    color: #4DC3FA;
+    margin-top: 40px;
+    font-size: 1.7em;
 }
-
-h2 {
-    font-size:1em;
-    font-weight: 300;
-    text-align: center;
-    display: block;
-    line-height:1em;
-    padding-bottom: 2em;
-    color: #FB667A;
-}
-
-h2 a {
-    font-weight: 700;
-    text-transform: uppercase;
-    color: #FB667A;
-    text-decoration: none;
+.btn-flip-extend {
+    background-color: transparent+ box-shadow(none);
+    opacity: 1;
 }
 
 .blue { color: #185875; }
@@ -111,7 +96,7 @@ h2 a {
     transition-delay: 0s;
     transition-duration: 0.4s;
     transition-property: all;
-    transition-timing-function: line;
+    transition-timing-function: linear;
 }
 
 @media (max-width: 800px) {

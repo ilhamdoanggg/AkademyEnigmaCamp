@@ -19,7 +19,7 @@ public class Artist {
     @Temporal(TemporalType.DATE)
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date debut;
-    @OneToMany(mappedBy = "idArtist", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "idArtist", cascade = CascadeType.PERSIST)
     private List<Song> song = new ArrayList<>();
 
     /**

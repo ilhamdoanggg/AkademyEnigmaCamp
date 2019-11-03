@@ -5,20 +5,20 @@ class TableForm extends Component {
     render() {
         return (
             <div>
-
-                {this.props.artist.map((result) => {
-                    return <table className="container">
-                        <tr>
-                            <th>Name</th>
-                            <th>Age</th>
-                        </tr>
-                        <tr>
+                <table className="container">
+                    <tr>
+                        <th>No </th>
+                        <th>Name </th>
+                        <th>Age </th>
+                    </tr>
+                {this.props.artist.map((result, index) => {
+                    return<tr>
+                            <td>{index+1}</td>
                             <td>{result.name}</td>
                             <td>{result.age}</td>
                         </tr>
-                    </table>
                 })}
-
+                </table>
             </div>
         );
     }

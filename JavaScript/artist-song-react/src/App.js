@@ -12,6 +12,7 @@ class App extends Component {
             <Switch>
                 <Route path="/artist"><ArtistContainer/></Route>
                 <Route path="/song"><SongContainer/></Route>
+                {/*<Route path="/artist-form"><ArtistForm/></Route>*/}
             </Switch>
         </Router>
     );
