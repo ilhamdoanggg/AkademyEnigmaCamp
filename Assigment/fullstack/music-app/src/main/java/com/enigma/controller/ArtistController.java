@@ -66,10 +66,16 @@ public class ArtistController {
      * @return the page
      */
     @CrossOrigin
-    @GetMapping("/artists")
+    @GetMapping("/artists-page")
     public Page<Artist> getAllArtistByPage(@RequestParam Integer size, @RequestParam Integer page){
         Pageable pageable = PageRequest.of(page,size);
         return artistServices.getAllArtist(pageable);
+    }
+
+    @CrossOrigin
+    @GetMapping("/artists")
+    public List<Artist> getAllArtist(){
+        return artistServices.getAllArtistWithOutPage();
     }
 
     /**

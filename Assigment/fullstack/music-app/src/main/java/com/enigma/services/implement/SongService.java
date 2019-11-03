@@ -35,6 +35,11 @@ public class SongService implements SongServices {
     }
 
     @Override
+    public List<Song> getAllSongWithOutPage() {
+        return songRepository.findAll();
+    }
+
+    @Override
     public Song getSongById(String id) {
         if (!songRepository.findById(id).isPresent()){
             return new Song();

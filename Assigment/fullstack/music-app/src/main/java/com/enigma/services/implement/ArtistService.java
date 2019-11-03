@@ -4,6 +4,8 @@ import com.enigma.repository.ArtistRepository;
 import com.enigma.services.interfaces.ArtistServices;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.apache.commons.io.FilenameUtils;
+import org.apache.tomcat.util.http.fileupload.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -47,6 +49,12 @@ public class ArtistService implements ArtistServices {
     public void delete(String id) {
         artistRepository.deleteById(id);
     }
+
+    @Override
+    public List<Artist> getAllArtistWithOutPage() {
+        return artistRepository.findAll();
+    }
+
     /*
     * change permision if you using linux
     * in folder "/var/www/html/images/"
@@ -56,7 +64,8 @@ public class ArtistService implements ArtistServices {
         Artist artist1 = saveArtist(objectMapper.readValue(artist, Artist.class));
         try {
             byte[] bytes= multipartFile.getBytes();
-            Path paths= Paths.get("/var/www/html/images/"+artist1.getId());
+            String ext= FilenameUtils.getExtension(multipartFile.getOriginalFilename());
+            Path paths= Paths.get("/var/www/html/images/"+artist1.getId()+"."+ext);
             Files.write(paths, bytes);
         } catch (IOException e) {
             e.printStackTrace();

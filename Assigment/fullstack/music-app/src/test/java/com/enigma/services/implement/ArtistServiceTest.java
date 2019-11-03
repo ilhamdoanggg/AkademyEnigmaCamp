@@ -1,5 +1,6 @@
 package com.enigma.services.implement;
 import com.enigma.entity.Artist;
+import com.enigma.exception.FileStorageException;
 import com.enigma.repository.ArtistRepository;
 import com.enigma.services.interfaces.ArtistServices;
 import org.junit.Assert;
@@ -24,8 +25,6 @@ public class ArtistServiceTest {
     @Autowired
     ArtistServices artistServices;
 
-    static Pageable pageable= PageRequest.of(0,10);
-
     @Before
     public void cleanUpDb(){
         artistRepository.deleteAll();
@@ -45,12 +44,18 @@ public class ArtistServiceTest {
     /**
      * Get all data in artist data must assert equals have 2.
      */
+//    @Test(expected = FileStorageException.class)
+//    public void terserahA(){
+//        //assertThrow in Junit 5
+//    }
+
     @Test
-    public void getAllDataInArtistDataMustAssertEqualsHave2(){
+    public void shouldAllDataInArtistDataMustAssertEqualsHave2(){
         Artist newArtist = new Artist( "Data", "serang", new Date());
         Artist oldArtist = new Artist( "Data", "serang", new Date());
         artistServices.saveArtist(newArtist);
         artistServices.saveArtist(oldArtist);
+        Pageable pageable= PageRequest.of(0,10);
         assertEquals(2, artistRepository.findAll(pageable).getTotalElements());
     }
 
@@ -66,6 +71,7 @@ public class ArtistServiceTest {
         newArtist.setName("Kangen Band");
         artistServices.saveArtist(newArtist);
         artistServices.delete(newArtist.getId());
+        Pageable pageable= PageRequest.of(0,10);
         assertTrue(artistRepository.findAll(pageable).isEmpty());
     }
 

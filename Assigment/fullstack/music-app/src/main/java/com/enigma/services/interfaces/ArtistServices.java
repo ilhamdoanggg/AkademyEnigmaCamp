@@ -27,6 +27,7 @@ public interface ArtistServices {
      * @param artist the artist
      * @return the all artist
      */
+
     Page<Artist> getAllArtist(Pageable pageable);
 
     /**
@@ -43,6 +44,8 @@ public interface ArtistServices {
      * @param id the id
      */
     void delete(String id);
+
+    List<Artist>getAllArtistWithOutPage();
 
     Artist saveArtistWithImage(MultipartFile multipartFile, String artist) throws JsonProcessingException, IOException;
 }

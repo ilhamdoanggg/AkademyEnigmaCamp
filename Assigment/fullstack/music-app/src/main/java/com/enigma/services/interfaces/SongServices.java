@@ -35,6 +35,13 @@ public interface SongServices {
     Page<Song> getAllSongByPage(Pageable pageable);
 
     /**
+     * Get all song with out page list.
+     *
+     * @return the list
+     */
+    List<Song>getAllSongWithOutPage();
+
+    /**
      * Gets song by id.
      *
      * @param id the id
