@@ -12,6 +12,7 @@ import java.util.Objects;
  * The type Song.
  */
 @Entity
+@Table(name = "mst_song")
 public class Song {
     @Id
     @GeneratedValue(generator = "system-uuid")
