@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {connect} from "react-redux";
 
 class SongInputForm extends Component {
+
     handleInputName = (event) => {
         this.props.dispatch({type: 'INPUT_SONG_NAME', index:this.props.index, songName:event.target.value})
     }

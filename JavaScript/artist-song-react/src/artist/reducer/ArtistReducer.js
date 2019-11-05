@@ -21,16 +21,11 @@ export default function artistReducer(state = intialState, action) {
             /*
             * add song array*/
         case 'ADD_SONG_FORM':
-            return {
-                ...state, artistsForm:
-                    {
-                        ...state.artistsForm,
-                        song: state.artistsForm.song.concat([{songName: '', release: ''}])
-                    }
+            return {...state, artistsForm:{...state.artistsForm,
+                    song: state.artistsForm.song.concat([{songName: '', release: ''}])}
             }
         case 'INPUT_SONG_NAME':
-            return {...state, artistsForm: {...state.artistsForm,
-                    song: state.artistsForm.song.map((element, index) => {
+            return {...state, artistsForm: {...state.artistsForm, song: state.artistsForm.song.map((element, index) => {
                         if (index === action.index) {
                             return {...element, songName: action.songName}
                         } else {

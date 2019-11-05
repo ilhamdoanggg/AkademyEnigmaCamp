@@ -46,7 +46,6 @@ class ArtistForm extends Component {
             </div>
         );
     }
-
 }
 
 const mapStateToProps = (state) => {
