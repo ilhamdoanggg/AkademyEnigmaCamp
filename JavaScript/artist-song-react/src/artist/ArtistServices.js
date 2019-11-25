@@ -14,14 +14,12 @@ export async function saveData(event) {
         .then((response)=>{
             return response.json()
         }).catch(reason => {
-//            console.log(reason)
         })
-  //  console.log(data)
     return data
 }
 
 export async function fetchInsertDataArtistWithSong(event) {
-    const data = await fetch("http://localhost:9090/artist", {method:"POST",
+    const data = await fetch("s", {method:"POST",
         headers:{'Content-Type': 'application/json'},
         body: JSON.stringify(event)})
         .then((response)=>{
